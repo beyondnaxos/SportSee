@@ -1,7 +1,44 @@
 .navbar {
     display: flex;
     justify-content: space-between;
+    align-items: center;
     background-color: black;
+    min-width: 1440px;
     width: 1440px;
-    height: 91x;
+    height: 91px;
+    font-family: roboto;
+
+}
+
+.logocontainer{
+    display: flex;
+    align-items: center;
+    column-gap: 12px;
+}
+
+.logo {
+    width: 57px;
+}
+
+.logoname {
+    color: rgb(255, 0, 0);
+}
+
+.navlinks {
+    width: 100vw;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 90px 0 28px;
+}
+
+.navlink  a{
+    color: white;
+    text-decoration: none;
+    list-style: none;
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 21px;
+    letter-spacing: 0.02em;
 }

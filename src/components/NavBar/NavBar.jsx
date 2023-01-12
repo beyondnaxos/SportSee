@@ -5,11 +5,11 @@ import styles from './NavBar.module.css'
 export default function NavBar() {
   return (
     <nav className={styles.navbar}>
-      <div className={styles.logocontainer}>
-        <img src="/assets/LOGO.svg" className={styles.logo}></img>
-        <h1>SportSee</h1>
-      </div>
       <ul className={styles.navlinks}>
+      <li className={styles.logocontainer}>
+        <img src="/assets/logo.png" className={styles.logo}></img>
+        <h1 className={styles.logoname}>SportSee</h1>
+      </li>
         <li className={styles.navlink}>
           <Link to="/">Accueil</Link>
         </li>
