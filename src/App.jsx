@@ -10,9 +10,9 @@ function App() {
     <BrowserRouter>
       <ScrollToTop />
       <NavBar />
-      <section className='main'>
-        <SideBar/>
-      {/* <Routing /> */}
+      <section className="main">
+        <SideBar />
+        <Routing />
       </section>
     </BrowserRouter>
   )

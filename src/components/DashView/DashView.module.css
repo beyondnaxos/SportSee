@@ -1,0 +1,26 @@
+.container {
+    width: calc(100% - 117px);
+    padding: 63px 90px 90px 109px;
+    font-family: roboto;
+}
+
+.title, .name {
+    font-size: 48px;
+    font-weight: 500;
+    line-height: 24px;
+}
+
+.title {
+    margin-bottom: 41px;
+}
+
+.name {
+    color: #FF0101 ;
+}
+
+.subtitle {
+    font-size: 18px;
+    font-weight: 400;
+    padding-left: 2px;
+    line-height: 24px;
+}
