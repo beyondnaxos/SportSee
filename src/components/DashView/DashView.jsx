@@ -6,8 +6,11 @@ import AverageSession from '../AverageSession/AverageSession'
 
 export default function DashView() {
   const [average, setAverage] = useState([])
+  const [userDatas, setUserDatas] = useState([])
+  const [userActivity, setUserActivity] = useState([])
+  const [userPerformance, setUserPerformance] = useState([])
 
-  const days = ['L', 'M', 'M', 'J', 'V', 'S', 'D']
+  const id = 12
 
   useEffect(() => {
     promiseAll()
@@ -16,40 +19,23 @@ export default function DashView() {
   const promiseAll = async () => {
     const [userDatas, averageSession, userActivity, userPerformance] =
       await Promise.all([
-        Store.getUserId(12),
-        Store.getUserAverageSession(12),
-        Store.getUserActivity(12),
-        Store.getUserPerformance(12),
+        Store.getUserId(id),
+        Store.getUserAverageSession(id),
+        Store.getUserActivity(id),
+        Store.getUserPerformance(id),
       ])
-      
-    console.log(averageSession.data.sessions)
 
+    setUserDatas(userDatas.data)
     setAverage(averageSession.data.sessions)
+    setUserActivity(userActivity.data)
+    setUserPerformance(userPerformance.data)
   }
 
-  
-
-  // const averageMap = averageSession.data.sessions.map((item, index) => {
-  //   return {
-  //     name: days[index],
-  //     uv: item.sessionLength,
-  //     amt: 2400,
-  //   }
-  // })
-
-
-
   console.log(average)
+  console.log(userDatas)
+  console.log(userActivity)
+  console.log(userPerformance)
 
-  // const renderLineChart = (
-  //   <LineChart width={250} height={250} data={average}>
-  //     <CartesianGrid horizontal={false} vertical={false} stroke="#ccc" fill='#FF0101'/>
-  //     <Line type="monotone" dataKey="uv" strokeWidth="2" stroke="#fff" />
-  //     <XAxis dataKey="name" />
-     
-  //     {/* <Line type="monotone" dataKey="pv" strokeWidth="2" stroke="#8884d8" /> */}
-  //   </LineChart>
-  // )
   return (
     <div className={styles.container}>
       <h1 className={styles.title}>
@@ -58,10 +44,7 @@ export default function DashView() {
       <h3 className={styles.subtitle}>
         Félicitation ! Vous avez explosé vos objectifs hier 👏
       </h3>
-      {/* {renderLineChart} */}
-      {
-        average.length > 0 && <AverageSession  average={average}/>
-      }
+      {average.length > 0 && <AverageSession average={average} />}
       
     </div>
   )
