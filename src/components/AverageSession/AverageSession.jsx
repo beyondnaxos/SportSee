@@ -35,7 +35,7 @@ export default function AverageSession(props) {
             <stop offset="30%" stopColor="#FFFFFF" stopOpacity={0.8} />
           </linearGradient>
         </defs>
-        <CartesianGrid horizontal={false} vertical={false}/>
+        <CartesianGrid horizontal={false} vertical={false} />
         {/* <YAxis  domain={[0, 'dataMax + 1000']} allowDataOverflow={true} tickLine={false}
           axisLine={false} values='none'/> */}
         <XAxis

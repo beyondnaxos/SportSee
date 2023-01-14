@@ -45,7 +45,6 @@ export default function DashView() {
         Félicitation ! Vous avez explosé vos objectifs hier 👏
       </h3>
       {average.length > 0 && <AverageSession average={average} />}
-      
     </div>
   )
 }
