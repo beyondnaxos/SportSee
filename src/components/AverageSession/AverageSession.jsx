@@ -40,8 +40,6 @@ export default function AverageSession(props) {
         {/* <YAxis  domain={[0, 'dataMax + 1000']} allowDataOverflow={true} tickLine={false}
           axisLine={false} values='none'/> */}
         <XAxis
-          // some padding at left and right
-          padding={{ left: 20, right: 20 }}
           dataKey="name"
           stroke="white"
           tickLine={false}
@@ -61,4 +59,13 @@ export default function AverageSession(props) {
   )
 
   return <div>{renderLineChart}</div>
+}
+
+AverageSession.propTypes = {
+  days : PropTypes.array,
+  averageMap : PropTypes.shape({
+    name: PropTypes.string,
+    duration: PropTypes.number,
+    amt: PropTypes.number,
+  })
 }
