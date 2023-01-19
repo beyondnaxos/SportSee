@@ -6,28 +6,27 @@ export default function RadarComp(props) {
 
   console.log(props.datas)
   console.log(props.kind)
- 
 
   const radarMap = props.datas.map((item, index) => {
     console.log(item.value);
     return {
       subject: props.kind[index + 1],
-      dataKey: item.value,
+      key: item.value,
+      fullMark: 150,
       // amt: 4400,
     }
   })
 
   const renderRadarChart = (
     <div className={styles.chartContainer}>
-      <RadarChart outerRadius={90} width={258} height={263} data={radarMap}>
-        <PolarGrid />
-        <PolarAngleAxis dataKey="subject" />
-        {/* <PolarRadiusAxis angle={90} domain={[0, 200]} /> */}
+      {/*  rotate chart angle from 30 */}
+      
+      <RadarChart outerRadius={90} width={248} height={253} data={radarMap}innerRadius={30} >
+        <PolarGrid  />
+        <PolarAngleAxis  dataKey="subject" fontSize={12} />    
         <Radar
-        //   name="Mike"
-          dataKey="dataKey"
-          stroke="#8884d8"
-          fill="#8884d8"
+          dataKey="key"
+          fill="#FF0000"
           fillOpacity={0.6}
         />
       </RadarChart>
