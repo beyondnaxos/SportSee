@@ -18,9 +18,7 @@ export default function RadarComp(props) {
   })
 
   const renderRadarChart = (
-    <div className={styles.chartContainer}>
-      {/*  rotate chart angle from 30 */}
-      
+    <div className={styles.chartContainer}>     
       <RadarChart outerRadius={90} width={248} height={253} data={radarMap}innerRadius={30} >
         <PolarGrid  />
         <PolarAngleAxis  dataKey="subject" fontSize={12} />    
