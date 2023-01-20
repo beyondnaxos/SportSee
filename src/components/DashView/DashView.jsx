@@ -4,6 +4,7 @@ import Store from '../../../service/store'
 
 import AverageSession from '../AverageSession/AverageSession'
 import RadarComp from '../Radar/RadarComp'
+import BarChartComp from '../BarChart/BarChat'
 
 
 export default function DashView() {
@@ -31,7 +32,7 @@ export default function DashView() {
 
     setUserDatas(userDatas.data)
     setAverage(averageSession.data.sessions)
-    setUserActivity(userActivity.data)
+    setUserActivity(userActivity.data.sessions)
     setUserPerformance(userPerformance.data.data)
     setKind(userPerformance.data.kind)
   }
@@ -50,6 +51,7 @@ export default function DashView() {
       <h3 className={styles.subtitle}>
         Félicitation ! Vous avez explosé vos objectifs hier 👏
       </h3>
+      {userActivity.length > 0 && <BarChartComp datas={userActivity} />}
       {average.length > 0 && <AverageSession average={average} />}
       {userPerformance.length > 0  && <RadarComp datas={userPerformance} kind={kind}/> }
     </div>
