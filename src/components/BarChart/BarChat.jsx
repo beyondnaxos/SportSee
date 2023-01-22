@@ -26,11 +26,11 @@ export default function BarChartComp(props) {
 
   const renderBarChart = (
     <div className={styles.chartContainer}>
-      <BarChart width={730} height={250} data={barMap}>
+      <BarChart width={853} height={320} data={barMap}>
         <CartesianGrid strokeDasharray="3 3" />
-        <Legend />
+        <Legend verticalAlign="top" height={36} align='right' />
         <XAxis dataKey="name" />
-        {/* <YAxis /> */}
+        <YAxis orientation="right" stroke="#82ca9d" />
         <Tooltip />
         <Bar dataKey="pv" fill="#8884d8" />
         <Bar dataKey="uv" fill="#82ca9d" />

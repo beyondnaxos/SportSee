@@ -29,7 +29,6 @@ export default function DashView() {
         Store.getUserAverageSession(id),
         Store.getUserActivity(id),
         Store.getUserPerformance(id),
-
       ])
 
     setUserDatas(userDatas.data.keyData)
@@ -55,9 +54,11 @@ export default function DashView() {
         Félicitation ! Vous avez explosé vos objectifs hier 👏
       </h3>
       {userActivity.length > 0 && <BarChartComp datas={userActivity} />}
+      <div className={styles.chartsContainer}>
       {average.length > 0 && <AverageSession average={average} />}
       {userPerformance.length > 0  && <RadarComp datas={userPerformance} kind={kind}/> }
       {userDatas && <PieComp score={userScore} />}
+      </div>
     </div>
   )
 }

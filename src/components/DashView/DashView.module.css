@@ -24,3 +24,8 @@
     padding-left: 2px;
     line-height: 24px;
 }
+
+.chartsContainer {
+    display: flex;
+    column-gap: 40px;
+}
