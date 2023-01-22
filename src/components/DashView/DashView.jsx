@@ -16,7 +16,7 @@ export default function DashView() {
   const [kind , setKind] = useState([])
   const [userPerformance, setUserPerformance] = useState([])
 
-  const id = 18
+  const id = 12
 
   useEffect(() => {
     promiseAll()
@@ -37,7 +37,7 @@ export default function DashView() {
     setUserActivity(userActivity.data.sessions)
     setUserPerformance(userPerformance.data.data)
     setKind(userPerformance.data.kind)
-    setUserScore(userDatas.data.score)
+    setUserScore( userDatas.data.score ? userDatas.data.score : userDatas.data.todayScore)
   }
 
   // console.log(average)
