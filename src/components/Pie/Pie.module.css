@@ -1,0 +1,19 @@
+.chartContainer {
+    height: 263px;
+    width: 258px;
+    background-color: rgb(255, 255, 255);
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.objectif {
+position: absolute;
+text-align: center;
+color: gray;
+}
+
+.objectifValue {
+    color: black;
+}

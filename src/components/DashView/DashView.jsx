@@ -5,23 +5,25 @@ import Store from '../../../service/store'
 import AverageSession from '../AverageSession/AverageSession'
 import RadarComp from '../Radar/RadarComp'
 import BarChartComp from '../BarChart/BarChat'
+import PieComp from '../Pie/Pie'
 
 
 export default function DashView() {
   const [average, setAverage] = useState([])
   const [userDatas, setUserDatas] = useState([])
+  const [userScore, setUserScore] = useState([])
   const [userActivity, setUserActivity] = useState([])
   const [kind , setKind] = useState([])
   const [userPerformance, setUserPerformance] = useState([])
 
-  const id = 12
+  const id = 18
 
   useEffect(() => {
     promiseAll()
   }, [])
 
   const promiseAll = async () => {
-    const [userDatas, averageSession, userActivity, userPerformance] =
+    const [ userDatas, averageSession, userActivity, userPerformance] =
       await Promise.all([
         Store.getUserId(id),
         Store.getUserAverageSession(id),
@@ -30,11 +32,12 @@ export default function DashView() {
 
       ])
 
-    setUserDatas(userDatas.data)
+    setUserDatas(userDatas.data.keyData)
     setAverage(averageSession.data.sessions)
     setUserActivity(userActivity.data.sessions)
     setUserPerformance(userPerformance.data.data)
     setKind(userPerformance.data.kind)
+    setUserScore(userDatas.data.score)
   }
 
   // console.log(average)
@@ -54,6 +57,7 @@ export default function DashView() {
       {userActivity.length > 0 && <BarChartComp datas={userActivity} />}
       {average.length > 0 && <AverageSession average={average} />}
       {userPerformance.length > 0  && <RadarComp datas={userPerformance} kind={kind}/> }
+      {userDatas && <PieComp score={userScore} />}
     </div>
   )
 }
