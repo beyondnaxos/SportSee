@@ -8,6 +8,15 @@ import BarChartComp from '../BarChart/BarChat'
 import PieComp from '../Pie/Pie'
 import Nutrients from '../Nutrients/Nutrients'
 
+
+/*
+  * @param {object} props
+  * @param {object} props.userDatas
+  * @param {object} props.average
+  * @param {object} props.userInfos
+*/
+
+
 export default function DashView() {
   const [average, setAverage] = useState([])
   const [userDatas, setUserDatas] = useState([])
