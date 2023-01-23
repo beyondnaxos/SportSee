@@ -16,7 +16,7 @@ export default function DashView() {
   const [kind, setKind] = useState([])
   const [userPerformance, setUserPerformance] = useState([])
 
-  const id = 18
+  const id = 12
 
   useEffect(() => {
     promiseAll()
@@ -54,10 +54,12 @@ export default function DashView() {
         Bonjour{' '}
         <span className={styles.name}>{userInfos && userInfos.firstName}</span>
       </h1>
+      
       <h3 className={styles.subtitle}>
         Félicitation ! Vous avez explosé vos objectifs hier 👏
       </h3>
-      <div className={styles.allCharts}>
+
+      <section className={styles.allCharts}>
         {userActivity.length > 0 && <BarChartComp datas={userActivity} />}
         <div className={styles.chartsContainer}>
           {average.length > 0 && <AverageSession average={average} />}
@@ -66,7 +68,15 @@ export default function DashView() {
           )}
           {userDatas && <PieComp score={userScore} />}
         </div>
-      </div>
+      </section>
+
+      <section className={styles.nutrients}>
+        {userDatas &&
+          Object.entries(userDatas).map(([key, value]) =>
+            console.log(key, value)
+          )}
+      </section>
+
     </div>
   )
 }
