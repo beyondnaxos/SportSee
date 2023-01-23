@@ -6,6 +6,7 @@ import AverageSession from '../AverageSession/AverageSession'
 import RadarComp from '../Radar/RadarComp'
 import BarChartComp from '../BarChart/BarChat'
 import PieComp from '../Pie/Pie'
+import Nutrients from '../Nutrients/Nutrients'
 
 export default function DashView() {
   const [average, setAverage] = useState([])
@@ -54,29 +55,30 @@ export default function DashView() {
         Bonjour{' '}
         <span className={styles.name}>{userInfos && userInfos.firstName}</span>
       </h1>
-      
+
       <h3 className={styles.subtitle}>
         Félicitation ! Vous avez explosé vos objectifs hier 👏
       </h3>
 
-      <section className={styles.allCharts}>
-        {userActivity.length > 0 && <BarChartComp datas={userActivity} />}
-        <div className={styles.chartsContainer}>
-          {average.length > 0 && <AverageSession average={average} />}
-          {userPerformance.length > 0 && (
-            <RadarComp datas={userPerformance} kind={kind} />
-          )}
-          {userDatas && <PieComp score={userScore} />}
-        </div>
-      </section>
+      <section className={styles.chartsContainer}>
+        <section className={styles.allCharts}>
+          {userActivity.length > 0 && <BarChartComp datas={userActivity} />}
+          <div className={styles.chartsContainer}>
+            {average.length > 0 && <AverageSession average={average} />}
+            {userPerformance.length > 0 && (
+              <RadarComp datas={userPerformance} kind={kind} />
+            )}
+            {userDatas && <PieComp score={userScore} />}
+          </div>
+        </section>
 
-      <section className={styles.nutrients}>
-        {userDatas &&
-          Object.entries(userDatas).map(([key, value]) =>
-            console.log(key, value)
-          )}
+        <section className={styles.nutrients}>
+          {userDatas &&
+            Object.entries(userDatas).map(([key, value, index]) => (
+              <Nutrients name={key} value={value} index={index}/>
+            ))}
+        </section>
       </section>
-
     </div>
   )
 }

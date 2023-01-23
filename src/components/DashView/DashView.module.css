@@ -4,6 +4,10 @@
     font-family: roboto;
 }
 
+.chartsContainer {
+    display: flex;
+}
+
 .title, .name {
     font-size: 48px;
     font-weight: 500;
@@ -34,4 +38,12 @@
 .chartsContainer {
     display: flex;
     column-gap: 40px;
+}
+
+.nutrients {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    row-gap: 40px;
+    height: 623px;  
 }
