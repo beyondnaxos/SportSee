@@ -8,13 +8,26 @@ import BarChartComp from '../BarChart/BarChat'
 import PieComp from '../Pie/Pie'
 import Nutrients from '../Nutrients/Nutrients'
 
+ 
+/**
+ * @description
+ * @param {object} props comment
+ * @returns {JSX.Element}
+ * @constructor
+ */
 
-/*
-  * @param {object} props
-  * @param {object} props.userDatas
-  * @param {object} props.average
-  * @param {object} props.userInfos
-*/
+/**
+ * @typedef {Object} State
+ * @property {Array} average contains the average of the user
+ * @property {Array} userDatas contains the datas of the user
+ * @property {Array} userInfos contains the infos of the user
+ * @property {Array} userScore contains the score of the user
+ * @property {Array} userActivity contains the activity of the user
+ * @property {Array} kind contains the kind of the user
+ * @property {Array} userPerformance contains the performance of the user
+ * @property {number} id contains the id of the user
+ * @property {function} promiseAll contains the function to get all the datas
+ *  */
 
 
 export default function DashView() {
