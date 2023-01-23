@@ -8,26 +8,31 @@ import BarChartComp from '../BarChart/BarChat'
 import PieComp from '../Pie/Pie'
 import Nutrients from '../Nutrients/Nutrients'
 
- 
+
 /**
+ * component for showing the dashboard modules
+ * @component
+ * @example
+ * const userScore = 12
+ * return (
+ *  <PieComp score={userScore} />
+ * )
  * @description
  * @param {object} props comment
  * @returns {JSX.Element}
  * @constructor
- */
-
-/**
  * @typedef {Object} State
- * @property {Array} average contains the average of the user
- * @property {Array} userDatas contains the datas of the user
- * @property {Array} userInfos contains the infos of the user
- * @property {Array} userScore contains the score of the user
- * @property {Array} userActivity contains the activity of the user
- * @property {Array} kind contains the kind of the user
+ * @property {Array} average contains the average sessions of the user
+ * @property {Object} userDatas contains the datas of the user (calories, etc)
+ * @property {Array} userInfos contains the infos of the user (name, etc)
+ * @property {Number} userScore contains the score of the user
+ * @property {Array} userActivity contains the activity sessions of the user
+ * @property {Object} kind contains the kind of perf (cardio, strength, etc)
  * @property {Array} userPerformance contains the performance of the user
- * @property {number} id contains the id of the user
+ * @property {Number} id contains the id of the user
  * @property {function} promiseAll contains the function to get all the datas
  *  */
+
 
 
 export default function DashView() {
@@ -64,12 +69,6 @@ export default function DashView() {
       userDatas.data.score ? userDatas.data.score : userDatas.data.todayScore
     )
   }
-
-  // console.log(average)
-  // console.log(userDatas)
-  // console.log(userActivity)
-  console.log(userPerformance)
-  console.log(userInfos.firstName)
 
   return (
     <div className={styles.container}>
