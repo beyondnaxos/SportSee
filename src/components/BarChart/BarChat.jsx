@@ -12,21 +12,12 @@ import {
 import styles from './BarChart.module.css'
 
 export default function BarChartComp(props) {
-
-  /**
-   * @typedef {Object} State
-   * @property {Array} barMap contains the datas of the user
-   * @property {Array} renderBarChart contains the function to get all the datas
-   * */
-
-
   const barMap = props.datas.map((item, index) => {
     console.log(item.value)
     return {
-      
       /**
        * @typedef {Object} State
-       * @property {number} name contains the day 
+       * @property {number} name contains the day
        * @property {number} pv contains the weight of the user
        * @property {number} uv contains the calories of the user
        */
@@ -38,7 +29,6 @@ export default function BarChartComp(props) {
   })
 
   const renderBarChart = (
-
     <div className={styles.chartContainer}>
       <BarChart width={853} height={320} data={barMap}>
         <CartesianGrid strokeDasharray="3 3" />
