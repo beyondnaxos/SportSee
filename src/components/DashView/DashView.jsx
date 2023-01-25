@@ -8,7 +8,6 @@ import BarChartComp from '../BarChart/BarChat'
 import PieComp from '../Pie/Pie'
 import Nutrients from '../Nutrients/Nutrients'
 
-
 /**
  * component for showing the dashboard modules
  * @component
@@ -32,8 +31,6 @@ import Nutrients from '../Nutrients/Nutrients'
  * @property {Number} id contains the id of the user
  * @property {function} promiseAll contains the function to get all the datas
  *  */
-
-
 
 export default function DashView() {
   const [average, setAverage] = useState([])
@@ -96,7 +93,7 @@ export default function DashView() {
         <section className={styles.nutrients}>
           {userDatas &&
             Object.entries(userDatas).map(([key, value, index]) => (
-              <Nutrients name={key} value={value} index={index}/>
+              <Nutrients name={key} value={value} index={index} />
             ))}
         </section>
       </section>

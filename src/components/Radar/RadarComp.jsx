@@ -1,14 +1,19 @@
 import PropTypes from 'prop-types'
-import { RadarChart, PolarGrid, PolarAngleAxis, PolarRadiusAxis, Radar } from 'recharts'
+import {
+  RadarChart,
+  PolarGrid,
+  PolarAngleAxis,
+  PolarRadiusAxis,
+  Radar,
+} from 'recharts'
 import styles from './RadarComp.module.css'
 
 export default function RadarComp(props) {
-
   console.log(props.datas)
   console.log(props.kind)
 
   const radarMap = props.datas.map((item, index) => {
-    console.log(item.value);
+    console.log(item.value)
     return {
       subject: props.kind[index + 1],
       key: item.value,
@@ -18,15 +23,17 @@ export default function RadarComp(props) {
   })
 
   const renderRadarChart = (
-    <div className={styles.chartContainer}>     
-      <RadarChart outerRadius={90} width={248} height={253} data={radarMap}innerRadius={30} >
-        <PolarGrid  />
-        <PolarAngleAxis  dataKey="subject" fontSize={12} />    
-        <Radar
-          dataKey="key"
-          fill="#FF0000"
-          fillOpacity={0.6}
-        />
+    <div className={styles.chartContainer}>
+      <RadarChart
+        outerRadius={90}
+        width={248}
+        height={253}
+        data={radarMap}
+        innerRadius={30}
+      >
+        <PolarGrid />
+        <PolarAngleAxis dataKey="subject" fontSize={12} />
+        <Radar dataKey="key" fill="#FF0000" fillOpacity={0.6} />
       </RadarChart>
     </div>
   )
