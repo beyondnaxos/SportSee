@@ -29,7 +29,6 @@ import Nutrients from '../Nutrients/Nutrients'
  * @property {Object} kind contains the kind of perf (cardio, strength, etc)
  * @property {Array} userPerformance contains the performance of the user
  * @property {Number} id contains the id of the user
- * @property {function} promiseAll contains the function to get all the datas
  *  */
 
 export default function DashView() {
