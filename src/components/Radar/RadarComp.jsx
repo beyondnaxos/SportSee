@@ -9,6 +9,16 @@ import {
 import styles from './RadarComp.module.css'
 
 export default function RadarComp(props) {
+
+  // doc
+  /**
+   * @typedef {Object} State
+   * @property {Array} datas contains the datas of the user (calories, etc)
+   * @property {Array} kind contains the kind of perf (cardio, strength, etc)
+   * @property {Array} radarMap contains the datas of the user (calories, etc)
+   * @property {Array} renderRadarChart contains the datas of the user (calories, etc)
+   * */
+  
   console.log(props.datas)
   console.log(props.kind)
 
