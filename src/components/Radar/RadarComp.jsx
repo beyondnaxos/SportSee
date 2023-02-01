@@ -9,7 +9,8 @@ import {
 import styles from './RadarComp.module.css'
 
 export default function RadarComp(props) {
-  // doc
+
+
   /**
    * @typedef {Object} State
    * @property {Array} datas contains the datas of the user (calories, etc)
@@ -50,11 +51,11 @@ export default function RadarComp(props) {
   return <div>{renderRadarChart}</div>
 }
 
-Radar.propTypes = {
+RadarComp.propTypes = {
   days: PropTypes.array,
-  averageMap: PropTypes.shape({
+  radarMap: PropTypes.exact({
     subject: PropTypes.string,
-    dataKey: PropTypes.number,
-    amt: PropTypes.number,
+    key: PropTypes.number,
+    fullMark: PropTypes.number,
   }),
 }

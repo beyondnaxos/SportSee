@@ -12,6 +12,8 @@ import {
 import styles from './BarChart.module.css'
 
 export default function BarChartComp(props) {
+  console.log('lalala', props)
+
   const barMap = props.datas.map((item, index) => {
     console.log(item.value)
     return {
@@ -46,9 +48,11 @@ export default function BarChartComp(props) {
 }
 
 BarChartComp.propTypes = {
-  barMap: PropTypes.shape({
-    name: PropTypes.number,
-    pv: PropTypes.number,
-    uv: PropTypes.number,
-  }),
+  datas: PropTypes.arrayOf(
+    PropTypes.shape({
+      day: PropTypes.string,
+      kilogram: PropTypes.number,
+      calories: PropTypes.number,
+    })
+  ),
 }

@@ -5,6 +5,7 @@ import styles from './AverageSession.module.css'
 
 export default function AverageSession(props) {
   const days = ['L', 'M', 'M', 'J', 'V', 'S', 'D']
+  const hello = 28
 
   const averageMap = props.average.map((item, index) => {
     return {
