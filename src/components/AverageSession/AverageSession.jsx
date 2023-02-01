@@ -4,8 +4,8 @@ import { LineChart, Line, CartesianGrid, XAxis, YAxis, Tooltip } from 'recharts'
 import styles from './AverageSession.module.css'
 
 export default function AverageSession(props) {
+
   const days = ['L', 'M', 'M', 'J', 'V', 'S', 'D']
-  const hello = 28
 
   const averageMap = props.average.map((item, index) => {
     return {
@@ -14,8 +14,6 @@ export default function AverageSession(props) {
       amt: 4400,
     }
   })
-
-  console.log(averageMap)
 
   const renderLineChart = (
     <div className={styles.chartContainer}>
@@ -70,3 +68,4 @@ AverageSession.propTypes = {
     amt: PropTypes.number,
   })
 }
+

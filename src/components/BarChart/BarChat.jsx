@@ -12,11 +12,11 @@ import {
 import styles from './BarChart.module.css'
 
 export default function BarChartComp(props) {
-  console.log('lalala', props)
-
+  
   const barMap = props.datas.map((item, index) => {
     console.log(item.value)
     return {
+
       /**
        * @typedef {Object} State
        * @property {number} name contains the day
