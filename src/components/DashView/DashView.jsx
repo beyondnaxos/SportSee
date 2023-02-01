@@ -9,18 +9,6 @@ import PieComp from '../Pie/Pie'
 import Nutrients from '../Nutrients/Nutrients'
 
 /**
- * component for showing the dashboard modules
- * @component
- * @example
- * const userScore = 12
- * return (
- *  <PieComp score={userScore} />
- * )
- * @description
- * @param {object} props comment
- * @returns {JSX.Element}
- * @constructor
- * @typedef {Object} State
  * @property {Array} average contains the average sessions of the user
  * @property {Object} userDatas contains the datas of the user (calories, etc)
  * @property {Array} userInfos contains the infos of the user (name, etc)

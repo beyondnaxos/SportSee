@@ -9,7 +9,6 @@ import {
 import styles from './RadarComp.module.css'
 
 export default function RadarComp(props) {
-
   // doc
   /**
    * @typedef {Object} State
@@ -18,7 +17,7 @@ export default function RadarComp(props) {
    * @property {Array} radarMap contains the datas of the user (calories, etc)
    * @property {Array} renderRadarChart contains the datas of the user (calories, etc)
    * */
-  
+
   console.log(props.datas)
   console.log(props.kind)
 
