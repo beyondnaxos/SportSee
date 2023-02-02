@@ -8,18 +8,7 @@ import BarChartComp from '../BarChart/BarChat'
 import PieComp from '../Pie/Pie'
 import Nutrients from '../Nutrients/Nutrients'
 import uuid from 'react-uuid'
-// import uuid from 'react-uuid';
 
-/**
- * @property {Array} average contains the average sessions of the user
- * @property {Object} userDatas contains the datas of the user (calories, etc)
- * @property {Array} userInfos contains the infos of the user (name, etc)
- * @property {Number} userScore contains the score of the user
- * @property {Array} userActivity contains the activity sessions of the user
- * @property {Object} kind contains the kind of perf (cardio, strength, etc)
- * @property {Array} userPerformance contains the performance of the user
- * @property {Number} id contains the id of the user
- *  */
 
 export default function DashView() {
   const [average, setAverage] = useState([])
