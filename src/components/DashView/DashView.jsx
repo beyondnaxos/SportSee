@@ -14,7 +14,7 @@ export default function DashView() {
   const [average, setAverage] = useState([])
   const [userDatas, setUserDatas] = useState([])
   const [userInfos, setUserInfos] = useState([])
-  const [userScore, setUserScore] = useState([])
+  const [userScore, setUserScore] = useState()
   const [userActivity, setUserActivity] = useState([])
   const [kind, setKind] = useState([])
   const [userPerformance, setUserPerformance] = useState([])
@@ -64,7 +64,7 @@ export default function DashView() {
             {userPerformance.length > 0 && (
               <RadarComp datas={userPerformance} kind={kind} />
             )}
-            {userDatas && <PieComp score={userScore} />}
+            {userScore != undefined && <PieComp score={userScore} />}
           </div>
         </section>
 
