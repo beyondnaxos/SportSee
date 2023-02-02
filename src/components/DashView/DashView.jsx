@@ -7,6 +7,8 @@ import RadarComp from '../Radar/RadarComp'
 import BarChartComp from '../BarChart/BarChat'
 import PieComp from '../Pie/Pie'
 import Nutrients from '../Nutrients/Nutrients'
+import uuid from 'react-uuid'
+// import uuid from 'react-uuid';
 
 /**
  * @property {Array} average contains the average sessions of the user
@@ -80,7 +82,7 @@ export default function DashView() {
         <section className={styles.nutrients}>
           {userDatas &&
             Object.entries(userDatas).map(([key, value, index]) => (
-              <Nutrients name={key} value={value} index={index} />
+              <Nutrients  key={uuid()}  name={key} value={value} index={index} />
             ))}
         </section>
       </section>

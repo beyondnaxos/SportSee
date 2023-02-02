@@ -3,6 +3,8 @@ import styles from './Nutrients.module.css'
 import PropTypes from 'prop-types'
 
 export default function Nutrients(props) {
+
+  console.log("nutrients", props);
   let nutType
   let styling
 

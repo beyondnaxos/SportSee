@@ -5,6 +5,8 @@ import styles from './AverageSession.module.css'
 
 export default function AverageSession(props) {
 
+  console.log('average', props)
+
   const days = ['L', 'M', 'M', 'J', 'V', 'S', 'D']
 
   const averageMap = props.average.map((item, index) => {
@@ -61,11 +63,11 @@ export default function AverageSession(props) {
 }
 
 AverageSession.propTypes = {
-  days : PropTypes.array,
-  averageMap : PropTypes.shape({
-    name: PropTypes.string,
-    duration: PropTypes.number,
-    amt: PropTypes.number,
-  })
+  days: PropTypes.arrayOf(PropTypes.string),
+  average: PropTypes.arrayOf(
+    PropTypes.shape({
+      day: PropTypes.number,
+      sessionLength: PropTypes.number,
+    })
+  ),
 }
-

@@ -3,7 +3,9 @@ import { RadialBarChart, RadialBar } from 'recharts'
 import styles from './Pie.module.css'
 
 export default function PieComp(props) {
-  console.log(props.score)
+
+  console.log('pie', props)
+
   const data = [
     {
       name: 'score',
@@ -18,8 +20,6 @@ export default function PieComp(props) {
       fill: '#FF0101',
     },
   ]
-
-  console.log(data)
 
   const renderPieChart = (
     <div className={styles.chartContainer}>
@@ -51,10 +51,5 @@ export default function PieComp(props) {
 }
 
 PieComp.propTypes = {
-  datas: PropTypes.shape({
-    name: PropTypes.string,
-    uv: PropTypes.number,
-    pv: PropTypes.number,
-    fill: PropTypes.string,
-  }),
+
 }
