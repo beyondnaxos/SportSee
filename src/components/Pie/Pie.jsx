@@ -51,5 +51,5 @@ export default function PieComp(props) {
 }
 
 PieComp.propTypes = {
-
+  score: PropTypes.number,
 }
