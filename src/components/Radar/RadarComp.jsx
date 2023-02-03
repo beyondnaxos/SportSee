@@ -19,11 +19,8 @@ export default function RadarComp(props) {
    * @property {Array} renderRadarChart contains the datas of the user (calories, etc)
    * */
 
-  console.log(props.datas)
-  console.log(props.kind)
 
   const radarMap = props.datas.map((item, index) => {
-    console.log(item.value)
     return {
       subject: props.kind[index + 1],
       key: item.value,
