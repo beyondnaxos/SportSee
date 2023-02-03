@@ -1,14 +1,12 @@
 import React, { useEffect, useState } from 'react'
 import styles from './DashView.module.css'
 import Store from '../../../service/store'
-
 import AverageSession from '../AverageSession/AverageSession'
 import RadarComp from '../Radar/RadarComp'
 import BarChartComp from '../BarChart/BarChat'
 import PieComp from '../Pie/Pie'
 import Nutrients from '../Nutrients/Nutrients'
 import uuid from 'react-uuid'
-
 
 export default function DashView() {
   const [average, setAverage] = useState([])
@@ -40,13 +38,12 @@ export default function DashView() {
     setUserActivity(userActivity.data.sessions)
     setUserPerformance(userPerformance.data.data)
     setKind(userPerformance.data.kind)
-    setUserScore(
-      userDatas.data.score ? userDatas.data.score : userDatas.data.todayScore
-    )
+    setUserScore( userDatas.data.score ? userDatas.data.score : userDatas.data.todayScore )
   }
 
   return (
     <div className={styles.container}>
+
       <h1 className={styles.title}>
         Bonjour{' '}
         <span className={styles.name}>{userInfos && userInfos.firstName}</span>
@@ -61,9 +58,7 @@ export default function DashView() {
           {userActivity.length > 0 && <BarChartComp datas={userActivity} />}
           <div className={styles.chartsContainer}>
             {average.length > 0 && <AverageSession average={average} />}
-            {userPerformance.length > 0 && (
-              <RadarComp datas={userPerformance} kind={kind} />
-            )}
+            {userPerformance.length > 0 && ( <RadarComp datas={userPerformance} kind={kind} /> )}
             {userScore != undefined && <PieComp score={userScore} />}
           </div>
         </section>
@@ -71,7 +66,7 @@ export default function DashView() {
         <section className={styles.nutrients}>
           {userDatas &&
             Object.entries(userDatas).map(([key, value, index]) => (
-              <Nutrients  key={uuid()}  name={key} value={value} index={index} />
+              <Nutrients key={uuid()} name={key} value={value} index={index} />
             ))}
         </section>
       </section>
