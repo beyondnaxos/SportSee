@@ -14,7 +14,6 @@ import styles from './BarChart.module.css'
 export default function BarChartComp(props) {
   
   const barMap = props.datas.map((item, index) => {
-    console.log(item.value)
     return {
 
       /**

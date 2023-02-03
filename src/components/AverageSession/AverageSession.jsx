@@ -24,9 +24,9 @@ export default function AverageSession(props) {
         height={263}
         data={averageMap}
         margin={{
-          top: 10,
-          right: 0,
-          left: 0,
+          top: 20,
+          right: 20,
+          left: 20,
           bottom: 10, //Increase or Decrease This
         }}
       >
