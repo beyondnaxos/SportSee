@@ -8,16 +8,17 @@ import {
 } from 'recharts'
 import styles from './RadarComp.module.css'
 
+/**
+ * @param {Object} props
+ * @param {Array} datas contains the datas of the user (calories, etc)
+ * @property {Array} kind contains the kind of perf (cardio, strength, etc)
+ * @property {Array} radarMap contains the datas of the user (calories, etc)
+ * @property {Array} renderRadarChart contains the datas of the user (calories, etc)
+ * */
+
 export default function RadarComp(props) {
 
   console.log('radarComp', props);
-  /**
-   * @typedef {Object} State
-   * @property {Array} datas contains the datas of the user (calories, etc)
-   * @property {Array} kind contains the kind of perf (cardio, strength, etc)
-   * @property {Array} radarMap contains the datas of the user (calories, etc)
-   * @property {Array} renderRadarChart contains the datas of the user (calories, etc)
-   * */
 
 
   const radarMap = props.datas.map((item, index) => {

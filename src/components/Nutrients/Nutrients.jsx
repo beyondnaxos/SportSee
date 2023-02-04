@@ -2,43 +2,51 @@ import React from 'react'
 import styles from './Nutrients.module.css'
 import PropTypes from 'prop-types'
 
+/**
+ * It takes in a prop called name, and depending on the value of name, it returns a different value for
+ * @param {{name : string , value : number }} props  name refers to the name of the nutrient, and value refers to the value of the nutrient
+ */
+
 export default function Nutrients(props) {
 
-  console.log("nutrients", props);
-  let nutType
-  let styling
+  console.log('nutrients', props)
 
   let valueType = props.name === 'calorieCount' ? 'kCal' : 'g'
 
-  if (props.name === 'calorieCount') {
-    nutType = 'Calories'
-    styling = styles.calorie
-  } else if (props.name === 'proteinCount') {
-    nutType = 'Protéines'
-    styling = styles.protein
-  } else if (props.name === 'carbohydrateCount') {
-    nutType = 'Glucides'
-    styling = styles.carbohydrate
-  } else if (props.name === 'lipidCount') {
-    nutType = 'Lipides'
-    styling = styles.lipid
+  const cases = {
+    calorieCount: {
+      nutType: 'Calories',
+      styling: styles.calorie,
+    },
+    proteinCount: {
+      nutType: 'Protéines',
+      styling: styles.protein,
+    },
+    carbohydrateCount: {
+      nutType: 'Glucides',
+      styling: styles.carbohydrate,
+    },
+    lipidCount: {
+      nutType: 'Lipides',
+      styling: styles.lipid,
+    },
   }
 
   return (
     <div className={styles.nutrientContainer}>
-      <div className={`${styles.iconContainer} ${styling}`}>
+      <div className={`${styles.iconContainer} ${cases[props.name].styling}`}>
         <img src={`/assets/nutrients/${props.name}.svg`} alt="" />
       </div>
-
       <div className={styles.nutrientInfo}>
         <p className={styles.nutrientValue}>
           {props.value.toLocaleString('en-US')}
           {valueType}
         </p>
-        <p className={styles.nutrientName}>{nutType}</p>
+        <p className={styles.nutrientName}>{cases[props.name].nutType}</p>
       </div>
     </div>
   )
+
 }
 
 Nutrients.propTypes = {
