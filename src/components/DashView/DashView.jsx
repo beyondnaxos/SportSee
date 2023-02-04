@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import styles from './DashView.module.css'
 import Store from '../../../service/store'
 import AverageSession from '../AverageSession/AverageSession'
@@ -7,8 +7,12 @@ import BarChartComp from '../BarChart/BarChat'
 import PieComp from '../Pie/Pie'
 import Nutrients from '../Nutrients/Nutrients'
 import uuid from 'react-uuid'
+import { AuthContext } from '../../../service/context.js';
 
 export default function DashView() {
+
+  const currentUser = useContext(AuthContext);
+
   const [average, setAverage] = useState([])
   const [userDatas, setUserDatas] = useState([])
   const [userInfos, setUserInfos] = useState([])
@@ -17,7 +21,9 @@ export default function DashView() {
   const [kind, setKind] = useState([])
   const [userPerformance, setUserPerformance] = useState([])
 
-  const id = 12
+  const userContext = useContext(AuthContext);
+
+  console.log(userContext.id)
 
   useEffect(() => {
     promiseAll()
@@ -26,10 +32,10 @@ export default function DashView() {
   const promiseAll = async () => {
     const [userDatas, averageSession, userActivity, userPerformance] =
       await Promise.all([
-        Store.getUserId(id),
-        Store.getUserAverageSession(id),
-        Store.getUserActivity(id),
-        Store.getUserPerformance(id),
+        Store.getUserId(userContext.id),
+        Store.getUserAverageSession(userContext.id),
+        Store.getUserActivity(userContext.id),
+        Store.getUserPerformance(userContext.id),
       ])
 
     setUserDatas(userDatas.data.keyData)
