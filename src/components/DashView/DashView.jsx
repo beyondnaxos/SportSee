@@ -11,7 +11,7 @@ import { AuthContext } from '../../../service/context.js';
 
 export default function DashView() {
 
-  const currentUser = useContext(AuthContext);
+  // const currentUser = useContext(AuthContext);
 
   const [average, setAverage] = useState([])
   const [userDatas, setUserDatas] = useState([])
@@ -27,6 +27,7 @@ export default function DashView() {
 
   useEffect(() => {
     promiseAll()
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   const promiseAll = async () => {
@@ -65,7 +66,7 @@ export default function DashView() {
           <div className={styles.chartsContainer}>
             {average.length > 0 && <AverageSession average={average} />}
             {userPerformance.length > 0 && ( <RadarComp datas={userPerformance} kind={kind} /> )}
-            {userScore != undefined && <PieComp score={userScore} />}
+            {userScore !== undefined && <PieComp score={userScore} />}
           </div>
         </section>
 

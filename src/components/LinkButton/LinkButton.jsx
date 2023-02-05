@@ -8,7 +8,7 @@ export default function LinkButton(props) {
   return (
 
       <div className={styles.navbutton}>
-        <img src={props.image} className={styles.navbuttonimage}></img>
+        <img src={props.image} className={styles.navbuttonimage} alt='nav button'></img>
       </div>
   )
 }

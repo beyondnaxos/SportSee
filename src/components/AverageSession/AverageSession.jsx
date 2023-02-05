@@ -1,6 +1,5 @@
-import React, { useEffect, useState } from 'react'
 import PropTypes from 'prop-types'
-import { LineChart, Line, CartesianGrid, XAxis, YAxis, Tooltip } from 'recharts'
+import { LineChart, Line, CartesianGrid, XAxis, Tooltip } from 'recharts'
 import styles from './AverageSession.module.css'
 
 export default function AverageSession(props) {

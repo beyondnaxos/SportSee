@@ -7,7 +7,7 @@ export default function NavBar() {
     <nav className={styles.navbar}>
       <ul className={styles.navlinks}>
       <li className={styles.logocontainer}>
-        <img src="/assets/logo.png" className={styles.logo}></img>
+        <img src="/assets/logo.png" className={styles.logo} alt='Logo sportsee'></img>
         <h1 className={styles.logoname}>SportSee</h1>
       </li>
         <li className={styles.navlink}>

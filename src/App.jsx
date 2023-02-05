@@ -9,6 +9,7 @@ import { AuthContext } from '../service/context.js';
 
 function App() {
 
+  // eslint-disable-next-line no-unused-vars
   const [currentUser, setCurrentUser] = useState({ id: 18 });
 
 
