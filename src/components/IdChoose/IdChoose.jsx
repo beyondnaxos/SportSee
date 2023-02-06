@@ -1,14 +1,10 @@
-import { useState, useContext } from "react"
-import { useNavigate } from "react-router-dom";
-import { AuthContext } from "../../../service/context.js";
+import { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 
 function IdChoose(props) {
-
-  const userContext = useContext(AuthContext);
-
   const [id, setId] = useState('')
 
-  const navigate = useNavigate();
+  const navigate = useNavigate()
 
   const handleChange = (e) => {
     setId(e.target.value)
@@ -21,13 +17,13 @@ function IdChoose(props) {
     navigate('/user/' + id)
   }
 
-
   return (
     <div>
       <h1>Choose your id</h1>
       <input type="text" value={id} onChange={(e) => handleChange(e)} />
-      <button className='getid' onClick={(e) => handleSubmit(e)}>Submit</button>
-
+      <button className="getid" onClick={(e) => handleSubmit(e)}>
+        Submit
+      </button>
     </div>
   )
 }
