@@ -9,6 +9,8 @@ import Nutrients from '../Nutrients/Nutrients'
 import uuid from 'react-uuid'
 import { AuthContext } from '../../../service/context.js';
 
+/* A function that returns a JSX element with a view of each charts components */
+
 export default function DashView() {
 
   // const currentUser = useContext(AuthContext);

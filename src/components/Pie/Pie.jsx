@@ -2,6 +2,14 @@ import PropTypes from 'prop-types'
 import { RadialBarChart, RadialBar } from 'recharts'
 import styles from './Pie.module.css'
 
+/**
+ * It takes a score as a prop and returns a pie chart with a percentage of the score.
+ * </code>
+ * @returns A React component.
+ * @param {{score : number}} props score refers to the score of the user
+ */
+
+
 export default function PieComp(props) {
 
   console.log('pie', props)

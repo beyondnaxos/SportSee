@@ -7,13 +7,13 @@ import {
 } from 'recharts'
 import styles from './RadarComp.module.css'
 
+
+
 /**
- * @param {Object} props
- * @param {Array} datas contains the datas of the user (calories, etc)
- * @property {Array} kind contains the kind of perf (cardio, strength, etc)
- * @property {Array} radarMap contains the datas of the user (calories, etc)
- * @property {Array} renderRadarChart contains the datas of the user (calories, etc)
- * */
+ * It takes in an array of objects, and returns a radar chart.
+ * @returns A React component.
+ * @param {{datas : Array<{value : number, kind : number}>}} props datas refers to the perf types of the user
+ */
 
 export default function RadarComp(props) {
 

@@ -11,18 +11,16 @@ import {
 
 import styles from './BarChart.module.css'
 
+/**
+ * It takes an array of objects as a prop, maps over the array, and returns a new array of objects with
+ * the same keys but different values.
+ * @param {{datas : Array<{day : string, kilogram : number, calories : number}>}} props datas refers to the weight and colories of the user and day of activity
+ * @returns An array of objects.
+ */
+
 export default function BarChartComp(props) {
-  
   const barMap = props.datas.map((item, index) => {
     return {
-
-      /**
-       * @typedef {Object} State
-       * @property {number} name contains the day
-       * @property {number} pv contains the weight of the user
-       * @property {number} uv contains the calories of the user
-       */
-
       name: index + 1,
       pv: item.kilogram,
       uv: item.calories,

@@ -2,6 +2,13 @@ import PropTypes from 'prop-types'
 import { LineChart, Line, CartesianGrid, XAxis, Tooltip } from 'recharts'
 import styles from './AverageSession.module.css'
 
+/**
+ * It takes an array of objects as a prop, maps over the array, and returns a new array of objects with
+ * the same keys but different values. 
+ * @param {{average : Array<{sessionLength : number}>}} props average refers to the average session length of the user
+ * @returns An array of objects.
+ */
+
 export default function AverageSession(props) {
 
   console.log('average', props)
