@@ -11,7 +11,6 @@ export default function Routing(props) {
   
   return (
     <Routes>
-      {/* default route for choosing id */}
       <Route path="/" element={<IdChoose setCurrentUser={props.setCurrentUser} />} />
       <Route path={"/user/" + userContext.id }  element={<DashView />} />
     </Routes>

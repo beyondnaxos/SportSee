@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 
 function IdChoose(props) {
+  
   const [id, setId] = useState('')
 
   const navigate = useNavigate()

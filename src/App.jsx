@@ -9,8 +9,8 @@ import { AuthContext } from '../service/context.js';
 
 function App() {
 
-  // eslint-disable-next-line no-unused-vars
   const [currentUser, setCurrentUser] = useState({ id: 18 });
+  const [ isFromApi ] = useState(false);
 
   console.log(currentUser)
 
@@ -21,7 +21,7 @@ function App() {
       <section className="main">
         <SideBar />
         <AuthContext.Provider value={currentUser}>
-        <Routing setCurrentUser={setCurrentUser} />
+        <Routing setCurrentUser={setCurrentUser} isFromApi={isFromApi}/>
         </AuthContext.Provider>
       </section>
     </BrowserRouter>
