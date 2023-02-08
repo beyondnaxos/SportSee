@@ -1,11 +1,15 @@
 .container {
     width: calc(100% - 117px);
-    padding: 63px 90px 90px 109px;
+    /* padding: 63px 90px 90px 109px; */
+    padding: 60px 90px 0px 109px;
     font-family: roboto;
 }
 
-.chartsContainer {
+.chartsContainerGroup {
     display: flex;
+    align-items: center;
+    height: 613px;
+    margin-top: 40px;
 }
 
 .title, .name {
@@ -32,6 +36,8 @@
 .allCharts {
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
     row-gap: 40px;
 }
 

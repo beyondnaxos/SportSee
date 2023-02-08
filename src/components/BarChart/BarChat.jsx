@@ -7,6 +7,7 @@ import {
   CartesianGrid,
   Tooltip,
   Legend,
+  ResponsiveContainer,
 } from 'recharts'
 
 import styles from './BarChart.module.css'
@@ -29,15 +30,33 @@ export default function BarChartComp(props) {
 
   const renderBarChart = (
     <div className={styles.chartContainer}>
-      <BarChart width={853} height={320} data={barMap}>
-        <CartesianGrid strokeDasharray="3 3" />
-        <Legend verticalAlign="top" height={36} align="right" />
-        <XAxis dataKey="name" />
-        <YAxis orientation="right" stroke="#82ca9d" />
-        <Tooltip />
-        <Bar dataKey="pv" fill="#8884d8" />
-        <Bar dataKey="uv" fill="#82ca9d" />
-      </BarChart>
+      <div>Activité quotidienne</div>
+      <ResponsiveContainer width={'99%'} height={250}>
+        <BarChart width={853} height={320} data={barMap}>
+          <CartesianGrid
+            strokeDasharray="3 3"
+            vertical={false}
+            stroke="#DEDEDE"
+          />
+          <Legend
+            verticalAlign="top"
+            height={36}
+            align="right"
+            wrapperStyle={{ left: -10, top: -25 }}
+          />
+          <XAxis dataKey="name" />
+          <YAxis
+            orientation="right"
+            tickLine={false}
+            axisLine={false}
+            tickCount={3}
+            stroke="#9B9EAC"
+          />
+          <Tooltip />
+          <Bar dataKey="pv" fill="#282D30" barSize={7} radius={[3, 3, 0, 0]} />
+          <Bar dataKey="uv" fill="#E60000" barSize={7} radius={[3, 3, 0, 0]} />
+        </BarChart>
+      </ResponsiveContainer>
     </div>
   )
 

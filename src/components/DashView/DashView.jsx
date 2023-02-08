@@ -8,7 +8,7 @@ import BarChartComp from '../BarChart/BarChat'
 import PieComp from '../Pie/Pie'
 import Nutrients from '../Nutrients/Nutrients'
 import uuid from 'react-uuid'
-import { AuthContext } from '../../../service/context.js';
+import { AuthContext, MockContext } from '../../../service/context.js';
 
 /* A function that returns a JSX element with a view of each charts components */
 
@@ -16,9 +16,8 @@ export default function DashView() {
 
   console.log(mock.activity)
  
-  let isMock = true
+  const isMock = useContext(MockContext);
 
-  // const currentUser = useContext(AuthContext);
   const [average, setAverage] = useState([])
   const [userDatas, setUserDatas] = useState([])
   const [userInfos, setUserInfos] = useState([])
@@ -28,6 +27,7 @@ export default function DashView() {
   const [userPerformance, setUserPerformance] = useState([])
 
   const userContext = useContext(AuthContext);
+
 
   console.log(userContext.id)
 
@@ -69,7 +69,7 @@ export default function DashView() {
         Félicitation ! Vous avez explosé vos objectifs hier 👏
       </h3>
 
-      <section className={styles.chartsContainer}>
+      <section className={styles.chartsContainerGroup}>
         <section className={styles.allCharts}>
           {userActivity.length > 0 && <BarChartComp datas={userActivity} />}
           <div className={styles.chartsContainer}>
