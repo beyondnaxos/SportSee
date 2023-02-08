@@ -14,7 +14,9 @@ import { AuthContext } from '../../../service/context.js';
 
 export default function DashView() {
 
-  console.log(mock)
+  console.log(mock.activity)
+ 
+  let isMock = true
 
   // const currentUser = useContext(AuthContext);
   const [average, setAverage] = useState([])
@@ -45,13 +47,14 @@ export default function DashView() {
         Store.getUserPerformance(userContext.id),
       ])
 
-    setUserDatas(userDatas.data.keyData)
-    setAverage(averageSession.data.sessions)
-    setUserInfos(userDatas.data.userInfos)
-    setUserActivity(userActivity.data.sessions)
-    setUserPerformance(userPerformance.data.data)
-    setKind(userPerformance.data.kind)
-    setUserScore( userDatas.data.score ? userDatas.data.score : userDatas.data.todayScore )
+    console.log(mock.activity)  
+    setUserDatas(isMock ?  mock.data.keyData : userDatas.data.keyData )
+    setAverage(isMock ? mock.averageSessions.sessions  : averageSession.data.sessions)
+    setUserInfos(isMock ? mock.data.userInfos : userDatas.data.userInfos)
+    setUserActivity(isMock ? mock.activity.sessions : userActivity.data.sessions)
+    setUserPerformance(isMock ? mock.performance.data : userPerformance.data.data)
+    setKind(isMock ? mock.performance.kind :userPerformance.data.kind)
+    setUserScore( isMock ? mock.data.todayScore : userDatas.data.score ? userDatas.data.score : userDatas.data.todayScore )
   }
 
   return (

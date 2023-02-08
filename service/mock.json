@@ -1,6 +1,6 @@
 {
   "data": {
-    "id": 17,
+    "id": 12,
     "userInfos": {
       "firstName": "Jacques",
       "lastName": "Soisson",
@@ -8,14 +8,14 @@
     },
     "todayScore": 0.52,
     "keyData": {
-      "calorieCount": 4230,
+      "calorieCount": 4130,
       "proteinCount": 195,
       "carbohydrateCount": 327,
       "lipidCount": 50
     }
   },
   "activity": {
-    "userId": 17,
+    "userId": 12,
     "sessions": [
       {
         "day": "2022-07-01",
@@ -54,8 +54,8 @@
       }
     ]
   },
-  "average-sessions": {
-    "userId": 17,
+  "averageSessions": {
+    "userId": 12,
     "sessions": [
       {
         "day": 1,
@@ -88,7 +88,7 @@
     ]
   },
   "performance": {
-    "userId": 17,
+    "userId": 12,
     "kind": {
       "1": "cardio",
       "2": "energy",
