@@ -1,6 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react'
 import styles from './DashView.module.css'
 import Store from '../../../service/store'
+import mock from '../../../service/mock'
 import AverageSession from '../AverageSession/AverageSession'
 import RadarComp from '../Radar/RadarComp'
 import BarChartComp from '../BarChart/BarChat'
@@ -13,8 +14,9 @@ import { AuthContext } from '../../../service/context.js';
 
 export default function DashView() {
 
-  // const currentUser = useContext(AuthContext);
+  console.log(mock)
 
+  // const currentUser = useContext(AuthContext);
   const [average, setAverage] = useState([])
   const [userDatas, setUserDatas] = useState([])
   const [userInfos, setUserInfos] = useState([])
@@ -31,6 +33,8 @@ export default function DashView() {
     promiseAll()
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
+
+  
 
   const promiseAll = async () => {
     const [userDatas, averageSession, userActivity, userPerformance] =
