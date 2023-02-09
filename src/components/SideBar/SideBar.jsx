@@ -13,12 +13,13 @@ export default function SideBar() {
 
   return (
     <nav className={styles.navcontainer}>
-        <div className={styles.linkcontainer}>
-            { images.map((image) => <LinkButton key={uuid()} image={image} />)}
-        </div>
+      <div className={styles.linkcontainer}>
+        {images.map((image) => (
+          <LinkButton key={uuid()} image={image} />
+        ))}
+      </div>
 
-        <p className={styles.copiryght}>Copiryght, SportSee 2020</p>
-      
+      <p className={styles.copiryght}>Copiryght, SportSee 2020</p>
     </nav>
   )
 }

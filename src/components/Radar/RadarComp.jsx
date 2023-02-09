@@ -1,13 +1,6 @@
 import PropTypes from 'prop-types'
-import {
-  RadarChart,
-  PolarGrid,
-  PolarAngleAxis,
-  Radar,
-} from 'recharts'
+import { RadarChart, PolarGrid, PolarAngleAxis, Radar } from 'recharts'
 import styles from './RadarComp.module.css'
-
-
 
 /**
  * It takes in an array of objects, and returns a radar chart.
@@ -16,9 +9,7 @@ import styles from './RadarComp.module.css'
  */
 
 export default function RadarComp(props) {
-
-  console.log('radarComp', props);
-
+  console.log('radarComp', props)
 
   const radarMap = props.datas.map((item, index) => {
     return {
@@ -49,7 +40,7 @@ export default function RadarComp(props) {
 }
 
 RadarComp.propTypes = {
- datas : PropTypes.arrayOf(
+  datas: PropTypes.arrayOf(
     PropTypes.shape({
       value: PropTypes.number,
       kind: PropTypes.number,

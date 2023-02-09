@@ -8,7 +8,6 @@ import PropTypes from 'prop-types'
  */
 
 export default function Nutrients(props) {
-
   console.log('nutrients', props)
 
   let valueType = props.name === 'calorieCount' ? 'kCal' : 'g'
@@ -46,7 +45,6 @@ export default function Nutrients(props) {
       </div>
     </div>
   )
-
 }
 
 Nutrients.propTypes = {

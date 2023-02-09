@@ -9,17 +9,14 @@ import styles from './Pie.module.css'
  * @param {{score : number}} props score refers to the score of the user
  */
 
-
 export default function PieComp(props) {
-
   console.log('pie', props)
 
   const data = [
     {
       name: 'score',
       fill: '#fff',
-      uv: 100-props.score * 100,
-    
+      uv: 100 - props.score * 100,
     },
     {
       name: 'score',
@@ -44,14 +41,20 @@ export default function PieComp(props) {
       >
         <RadialBar
           minAngle={15}
-        //   label={{ fill: '#666', position: 'insideStart' }}
-        //   background
+          //   label={{ fill: '#666', position: 'insideStart' }}
+          //   background
           clockWise={true}
           dataKey="uv"
         />
         {/* <Tooltip /> */}
       </RadialBarChart>
-      <p className={styles.objectif}><span className={styles.objectifValue}>{props.score * 100}%</span><br/>de votre<br/>objectif</p>
+      <p className={styles.objectif}>
+        <span className={styles.objectifValue}>{props.score * 100}%</span>
+        <br />
+        de votre
+        <br />
+        objectif
+      </p>
     </div>
   )
 
