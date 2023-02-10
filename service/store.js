@@ -1,8 +1,5 @@
 import axios from 'axios'
 
-// isfrommock ? true ..
-// SI datas viennent du mock => mock : api
-
 /* A store that is used to get data from the API. */
 const Store = {
   getUserId: async (id) => {

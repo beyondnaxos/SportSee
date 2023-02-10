@@ -8,7 +8,7 @@ import { AuthContext } from '../../service/context.js';
 export default function Routing(props) {
 
   const userContext = useContext(AuthContext);
-  
+
   return (
     <Routes>
       <Route path="/" element={<IdChoose setCurrentUser={props.setCurrentUser} />} />

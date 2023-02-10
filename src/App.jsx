@@ -12,8 +12,6 @@ function App() {
   const [currentUser, setCurrentUser] = useState({ id: 18 });
   const [ isFromMock ] = useState(true);
 
-  console.log(currentUser)
-
   return (
     <BrowserRouter>
       <ScrollToTop />
