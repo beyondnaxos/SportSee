@@ -39,6 +39,7 @@ export default function DashView() {
   
 
   const promiseAll = async () => {
+
     const [userDatas, averageSession, userActivity, userPerformance] =
       await Promise.all([
         Store.getUserId(userContext.id),

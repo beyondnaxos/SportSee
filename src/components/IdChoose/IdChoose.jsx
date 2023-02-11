@@ -1,9 +1,11 @@
-import { useState } from 'react'
+import { useContext, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-// import { AuthContext } from '../../../service/context'
+import { AuthContext } from '../../../service/context'
 
 function IdChoose(props) {
-  
+
+  // const userContext = useContext(AuthContext)
+
   const [id, setId] = useState('')
 
   const navigate = useNavigate()
@@ -16,7 +18,7 @@ function IdChoose(props) {
     e.preventDefault()
     console.log(id)
     props.setCurrentUser({ id: id })
-    navigate('/user/' + id)
+    navigate('/user/' +  id)
   }
 
   return (

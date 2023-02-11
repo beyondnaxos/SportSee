@@ -35,7 +35,6 @@ export default function RadarComp(props) {
       </RadarChart>
     </div>
   )
-
   return <div>{renderRadarChart}</div>
 }
 
