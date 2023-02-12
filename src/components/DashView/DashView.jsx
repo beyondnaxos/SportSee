@@ -1,62 +1,56 @@
-import React, { useContext, useEffect, useState } from 'react'
-import styles from './DashView.module.css'
-import Store from '../../../service/store'
-import mock from '../../../service/mock'
-import AverageSession from '../AverageSession/AverageSession'
-import RadarComp from '../Radar/RadarComp'
-import BarChartComp from '../BarChart/BarChat'
-import PieComp from '../Pie/Pie'
-import Nutrients from '../Nutrients/Nutrients'
-import uuid from 'react-uuid'
-import { AuthContext, MockContext } from '../../../service/context.js';
+import React, { useEffect, useState } from 'react';
+import styles from './DashView.module.css';
+import Store from '../../../service/store';
+import MockStore from "../../../service/mockStore";
+import AverageSession from '../AverageSession/AverageSession';
+import RadarComp from '../Radar/RadarComp';
+import BarChartComp from '../BarChart/BarChat';
+import PieComp from '../Pie/Pie';
+import Nutrients from '../Nutrients/Nutrients';
+import uuid from 'react-uuid';
+import { useParams } from "react-router-dom";
+
+let store = import.meta.env.VITE_DATA === "MOCK"
+  ? MockStore
+  : Store;
 
 /* A function that returns a JSX element with a view of each charts components */
 
 export default function DashView() {
+  const { id } = useParams();
 
-  console.log(mock.activity)
- 
-  const isMock = useContext(MockContext);
-
-  const [average, setAverage] = useState([])
-  const [userDatas, setUserDatas] = useState([])
-  const [userInfos, setUserInfos] = useState([])
-  const [userScore, setUserScore] = useState()
-  const [userActivity, setUserActivity] = useState([])
-  const [kind, setKind] = useState([])
-  const [userPerformance, setUserPerformance] = useState([])
-
-  const userContext = useContext(AuthContext);
-
-
-  console.log(userContext.id)
+  const [average, setAverage] = useState([]);
+  const [userDatas, setUserDatas] = useState([]);
+  const [userInfos, setUserInfos] = useState([]);
+  const [userScore, setUserScore] = useState();
+  const [userActivity, setUserActivity] = useState([]);
+  const [kind, setKind] = useState([]);
+  const [userPerformance, setUserPerformance] = useState([]);
 
   useEffect(() => {
-    promiseAll()
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [])
-
-  
+    promiseAll();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   const promiseAll = async () => {
-
     const [userDatas, averageSession, userActivity, userPerformance] =
       await Promise.all([
-        Store.getUserId(userContext.id),
-        Store.getUserAverageSession(userContext.id),
-        Store.getUserActivity(userContext.id),
-        Store.getUserPerformance(userContext.id),
-      ])
+        store.getUserId(id),
+        store.getUserAverageSession(id),
+        store.getUserActivity(id),
+        store.getUserPerformance(id),
+      ]);
 
-    console.log(mock.activity)  
-    setUserDatas(isMock ?  mock.data.keyData : userDatas.data.keyData )
-    setAverage(isMock ? mock.averageSessions.sessions  : averageSession.data.sessions)
-    setUserInfos(isMock ? mock.data.userInfos : userDatas.data.userInfos)
-    setUserActivity(isMock ? mock.activity.sessions : userActivity.data.sessions)
-    setUserPerformance(isMock ? mock.performance.data : userPerformance.data.data)
-    setKind(isMock ? mock.performance.kind :userPerformance.data.kind)
-    setUserScore( isMock ? mock.data.todayScore : userDatas.data.score ? userDatas.data.score : userDatas.data.todayScore )
-  }
+    console.log(userDatas);
+
+    setUserDatas(userDatas.keyData);
+    setUserInfos(userDatas.userInfos);
+    setUserScore(userDatas.score || userDatas.todayScore);
+    setAverage(averageSession.sessions);
+    setUserActivity(userActivity.sessions);
+    setUserPerformance(userPerformance.data);
+    setKind(userPerformance.kind);
+  };
 
   return (
     <div className={styles.container}>
@@ -75,7 +69,7 @@ export default function DashView() {
           {userActivity.length > 0 && <BarChartComp datas={userActivity} />}
           <div className={styles.chartsContainer}>
             {average.length > 0 && <AverageSession average={average} />}
-            {userPerformance.length > 0 && ( <RadarComp datas={userPerformance} kind={kind} /> )}
+            {userPerformance.length > 0 && (<RadarComp datas={userPerformance} kind={kind} />)}
             {userScore !== undefined && <PieComp score={userScore} />}
           </div>
         </section>
@@ -88,5 +82,5 @@ export default function DashView() {
         </section>
       </section>
     </div>
-  )
+  );
 }
