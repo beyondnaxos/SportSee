@@ -10,9 +10,7 @@ import Nutrients from '../Nutrients/Nutrients';
 import uuid from 'react-uuid';
 import { useParams } from "react-router-dom";
 
-let store = import.meta.env.VITE_DATA === "MOCK"
-  ? MockStore
-  : Store;
+let store = import.meta.env.VITE_DATA === "MOCK" ? MockStore : Store;
 
 /* A function that returns a JSX element with a view of each charts components */
 
@@ -45,7 +43,7 @@ export default function DashView() {
 
     setUserDatas(userDatas.keyData);
     setUserInfos(userDatas.userInfos);
-    setUserScore(userDatas.score || userDatas.todayScore);
+    setUserScore(userDatas.todayScore);
     setAverage(averageSession.sessions);
     setUserActivity(userActivity.sessions);
     setUserPerformance(userPerformance.data);
@@ -68,7 +66,7 @@ export default function DashView() {
         <section className={styles.allCharts}>
           {userActivity.length > 0 && <BarChartComp datas={userActivity} />}
           <div className={styles.chartsContainer}>
-            {average.length > 0 && <AverageSession average={average} />}
+            {average !== undefined && <AverageSession average={average} />}
             {userPerformance.length > 0 && (<RadarComp datas={userPerformance} kind={kind} />)}
             {userScore !== undefined && <PieComp score={userScore} />}
           </div>
