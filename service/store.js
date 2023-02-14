@@ -1,6 +1,7 @@
 import axios from 'axios';
 import userDataModel from './Models/userModel';
-import averageModel from './Models/averageModel';
+// import averageModel from './Models/averageModel';
+// import ActivityModel from './Models/activityModel';
 
 /* A store that is used to get data from the API. */
 const Store = {
@@ -12,8 +13,9 @@ const Store = {
   },
   getUserActivity: async (id) => {
     const { data } = await axios.get(`http://localhost:3000/user/${id}/activity`);
-
-    console.log(data);
+    // const activityData = new ActivityModel(data.data)
+    
+    // console.log(activityData);
     return data.data;
   },
   getUserAverageSession: async (id) => {
