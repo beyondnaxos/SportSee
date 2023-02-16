@@ -1,35 +1,34 @@
-import React, { useEffect, useState } from 'react';
-import styles from './DashView.module.css';
-import Store from '../../../service/store';
-import MockStore from "../../../service/mockStore";
-import AverageSession from '../AverageSession/AverageSession';
-import RadarComp from '../Radar/RadarComp';
-import BarChartComp from '../BarChart/BarChat';
-import PieComp from '../Pie/Pie';
-import Nutrients from '../Nutrients/Nutrients';
-import uuid from 'react-uuid';
-import { useParams } from "react-router-dom";
+import React, { useEffect, useState } from 'react'
+import styles from './DashView.module.css'
+import Store from '../../../service/store'
+import MockStore from '../../../service/mockStore'
+import AverageSession from '../AverageSession/AverageSession'
+import RadarComp from '../Radar/RadarComp'
+import BarChartComp from '../BarChart/BarChat'
+import PieComp from '../Pie/Pie'
+import Nutrients from '../Nutrients/Nutrients'
+import uuid from 'react-uuid'
+import { useParams } from 'react-router-dom'
 
-let store = import.meta.env.VITE_DATA === "MOCK" ? MockStore : Store;
+let store = import.meta.env.VITE_DATA === 'MOCK' ? MockStore : Store
 
 /* A function that returns a JSX element with a view of each charts components */
 
 export default function DashView() {
-  
-  const { id } = useParams();
+  const { id } = useParams()
 
-  const [average, setAverage] = useState([]);
-  const [userDatas, setUserDatas] = useState([]);
-  const [userInfos, setUserInfos] = useState([]);
-  const [userScore, setUserScore] = useState();
-  const [userActivity, setUserActivity] = useState([]);
-  const [kind, setKind] = useState([]);
-  const [userPerformance, setUserPerformance] = useState([]);
+  const [average, setAverage] = useState([])
+  const [userDatas, setUserDatas] = useState([])
+  const [userInfos, setUserInfos] = useState([])
+  const [userScore, setUserScore] = useState()
+  const [userActivity, setUserActivity] = useState([])
+  const [kind, setKind] = useState([])
+  const [userPerformance, setUserPerformance] = useState([])
 
   useEffect(() => {
-    promiseAll();
+    promiseAll()
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [])
 
   const promiseAll = async () => {
     const [userDatas, averageSession, userActivity, userPerformance] =
@@ -38,25 +37,23 @@ export default function DashView() {
         store.getUserAverageSession(id),
         store.getUserActivity(id),
         store.getUserPerformance(id),
-      ]);
+      ])
 
-    console.log(userDatas);
+    console.log(userDatas)
 
-
-    setUserDatas(userDatas.keyData);
-    setUserInfos(userDatas.userInfos);
-    setUserScore(userDatas.todayScore);
-    setAverage(averageSession.sessions);
-    setUserActivity(userActivity);
-    setUserPerformance(userPerformance.data);
-    setKind(userPerformance.kind);
+    setUserDatas(userDatas.keyData)
+    setUserInfos(userDatas.userInfos)
+    setUserScore(userDatas.todayScore)
+    setAverage(averageSession.sessions)
+    setUserActivity(userActivity)
+    setUserPerformance(userPerformance)
+    setKind(userPerformance.kind)
 
     console.log(userActivity)
-  };
+  }
 
   return (
     <div className={styles.container}>
-
       <h1 className={styles.title}>
         Bonjour{' '}
         <span className={styles.name}>{userInfos && userInfos.firstName}</span>
@@ -71,7 +68,9 @@ export default function DashView() {
           {userActivity.length > 0 && <BarChartComp datas={userActivity} />}
           <div className={styles.chartsContainer}>
             {average !== undefined && <AverageSession average={average} />}
-            {userPerformance.length > 0 && (<RadarComp datas={userPerformance} kind={kind} />)}
+            {userPerformance.length > 0 && (
+              <RadarComp datas={userPerformance} kind={kind} />
+            )}
             {userScore !== undefined && <PieComp score={userScore} />}
           </div>
         </section>
@@ -84,5 +83,5 @@ export default function DashView() {
         </section>
       </section>
     </div>
-  );
+  )
 }

@@ -20,6 +20,18 @@ import styles from './BarChart.module.css'
  */
 
 export default function BarChartComp(props) {
+  const CustomTooltip = ({ active, payload }) => {
+    if (active && payload) {
+      return (
+        <div className={styles.activityTooltip}>
+          <p className={styles.weightLabel}>{payload[0].value}kg</p>
+          <p className={styles.caloriesLabel}>{payload[1].value}Kcal</p>
+        </div>
+      )
+    }
+    return null
+  }
+
   const renderBarChart = (
     <div className={styles.chartContainer}>
       <div>Activité quotidienne</div>
@@ -44,9 +56,23 @@ export default function BarChartComp(props) {
             tickCount={3}
             stroke="#9B9EAC"
           />
-          <Tooltip />
-          <Bar dataKey="pv" fill="#282D30" barSize={7} radius={[3, 3, 0, 0]} />
-          <Bar dataKey="uv" fill="#E60000" barSize={7} radius={[3, 3, 0, 0]} />
+          <Tooltip
+            content={<CustomTooltip />}
+            animationEasing="ease-out"
+            wrapperStyle={{ outline: 'none' , left: 30, top: -21 } }
+          />
+          <Bar
+            dataKey="kilogrammes"
+            fill="#282D30"
+            barSize={7}
+            radius={[3, 3, 0, 0]}
+          />
+          <Bar
+            dataKey="calories"
+            fill="#E60000"
+            barSize={7}
+            radius={[3, 3, 0, 0]}
+          />
         </BarChart>
       </ResponsiveContainer>
     </div>

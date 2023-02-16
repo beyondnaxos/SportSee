@@ -11,22 +11,13 @@ import styles from './RadarComp.module.css'
 export default function RadarComp(props) {
   console.log('radarComp', props)
 
-  const radarMap = props.datas.map((item, index) => {
-    return {
-      subject: props.kind[index + 1],
-      key: item.value,
-      fullMark: 150,
-      // amt: 4400,
-    }
-  })
-
   const renderRadarChart = (
     <div className={styles.chartContainer}>
       <RadarChart
         outerRadius={90}
         width={248}
         height={253}
-        data={radarMap}
+        data={props.datas}
         innerRadius={30}
       >
         <PolarGrid />

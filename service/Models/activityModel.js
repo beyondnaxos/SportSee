@@ -5,8 +5,8 @@ export default class ActivityModel {
     this.mappedData = data.sessions.map((item, index ) => {
         return {
           name: index + 1,
-          pv: item.kilogram,
-          uv: item.calories,
+          kilogrammes: item.kilogram,
+          calories: item.calories,
         }
       })
   }

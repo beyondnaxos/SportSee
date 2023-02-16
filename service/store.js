@@ -2,6 +2,7 @@ import axios from 'axios';
 import UserDataModel from './Models/userModel';
 // import AverageModel from './Models/averageModel';
 import ActivityModel from './Models/activityModel';
+import PerformanceModel from './Models/perfsModel';
 
 /* A store that is used to get data from the API. */
 const Store = {
@@ -26,8 +27,9 @@ const Store = {
   },
   getUserPerformance: async (id) => {
     const { data } = await axios.get(`http://localhost:3000/user/${id}/performance`);
-    console.log(data);
-    return data.data;
+    const performanceData = new PerformanceModel(data.data)
+    console.log(performanceData);
+    return performanceData.mappedData;
   },
 };
 
