@@ -20,7 +20,7 @@ export default function RadarComp(props) {
         data={props.datas}
         innerRadius={30}
       >
-        <PolarGrid />
+        <PolarGrid gridType="polygon" radialLines={false} />
         <PolarAngleAxis dataKey="subject" fontSize={12} />
         <Radar dataKey="key" fill="#FF0000" fillOpacity={0.6} />
       </RadarChart>
