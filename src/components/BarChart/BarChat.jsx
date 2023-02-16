@@ -20,19 +20,11 @@ import styles from './BarChart.module.css'
  */
 
 export default function BarChartComp(props) {
-  const barMap = props.datas.map((item, index) => {
-    return {
-      name: index + 1,
-      pv: item.kilogram,
-      uv: item.calories,
-    }
-  })
-
   const renderBarChart = (
     <div className={styles.chartContainer}>
       <div>Activité quotidienne</div>
       <ResponsiveContainer width={'99%'} height={250}>
-        <BarChart width={853} height={320} data={barMap}>
+        <BarChart width={853} height={320} data={props.datas}>
           <CartesianGrid
             strokeDasharray="3 3"
             vertical={false}

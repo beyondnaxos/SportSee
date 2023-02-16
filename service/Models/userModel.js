@@ -1,4 +1,4 @@
-export default class userDataModel {
+export default class UserDataModel {
   constructor(data) {
     this.userId = data.id
     this.userInfos = data.userInfos

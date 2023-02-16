@@ -15,6 +15,7 @@ let store = import.meta.env.VITE_DATA === "MOCK" ? MockStore : Store;
 /* A function that returns a JSX element with a view of each charts components */
 
 export default function DashView() {
+  
   const { id } = useParams();
 
   const [average, setAverage] = useState([]);
@@ -41,13 +42,16 @@ export default function DashView() {
 
     console.log(userDatas);
 
+
     setUserDatas(userDatas.keyData);
     setUserInfos(userDatas.userInfos);
     setUserScore(userDatas.todayScore);
     setAverage(averageSession.sessions);
-    setUserActivity(userActivity.sessions);
+    setUserActivity(userActivity);
     setUserPerformance(userPerformance.data);
     setKind(userPerformance.kind);
+
+    console.log(userActivity)
   };
 
   return (
