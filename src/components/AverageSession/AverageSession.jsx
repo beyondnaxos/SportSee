@@ -11,24 +11,12 @@ import styles from './AverageSession.module.css'
 
 export default function AverageSession(props) {
 
-  console.log('average', props)
-
-  const days = ['L', 'M', 'M', 'J', 'V', 'S', 'D']
-
-  const averageMap = props.average.map((item, index) => {
-    return {
-      name: days[index],
-      duration: item.sessionLength,
-      amt: 4400,
-    }
-  })
-
   const renderLineChart = (
     <div className={styles.chartContainer}>
       <LineChart
         width={258}
         height={263}
-        data={averageMap}
+        data={props.average}
         margin={{
           top: 20,
           right: 20,
@@ -69,11 +57,12 @@ export default function AverageSession(props) {
 }
 
 AverageSession.propTypes = {
-  days: PropTypes.arrayOf(PropTypes.string),
+  // days: PropTypes.arrayOf(PropTypes.string),
   average: PropTypes.arrayOf(
     PropTypes.shape({
       day: PropTypes.number,
-      sessionLength: PropTypes.number,
+      duration: PropTypes.number,
+      amt : PropTypes.number
     })
   ),
 }

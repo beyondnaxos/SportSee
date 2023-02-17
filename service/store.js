@@ -1,6 +1,6 @@
 import axios from 'axios';
 import UserDataModel from './Models/userModel';
-// import AverageModel from './Models/averageModel';
+import AverageModel from './Models/averageModel';
 import ActivityModel from './Models/activityModel';
 import PerformanceModel from './Models/perfsModel';
 
@@ -21,9 +21,9 @@ const Store = {
   },
   getUserAverageSession: async (id) => {
     const { data } = await axios.get(`http://localhost:3000/user/${id}/average-sessions`);
-    // const averageData = new AverageModel(data.data)
-    // console.log(averageData);
-    return data.data;
+    const averageData = new AverageModel(data.data)
+    console.log(averageData);
+    return averageData.mappedData;
   },
   getUserPerformance: async (id) => {
     const { data } = await axios.get(`http://localhost:3000/user/${id}/performance`);

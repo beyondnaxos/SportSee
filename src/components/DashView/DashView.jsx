@@ -44,7 +44,7 @@ export default function DashView() {
     setUserDatas(userDatas.keyData)
     setUserInfos(userDatas.userInfos)
     setUserScore(userDatas.todayScore)
-    setAverage(averageSession.sessions)
+    setAverage(averageSession)
     setUserActivity(userActivity)
     setUserPerformance(userPerformance)
     setKind(userPerformance.kind)
