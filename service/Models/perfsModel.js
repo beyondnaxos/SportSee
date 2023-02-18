@@ -6,23 +6,23 @@ export default class PerfsModel {
         key: item.value,
         fullMark: 150,
       }
-    })
+    }).reverse()
   }
   
   translate = (kind) => {
     switch (kind) {
       case 'cardio':
-        return 'cardio'
+        return 'Cardio'
       case 'energy':
-        return 'énergie'
+        return 'Énergie'
       case 'endurance':
-        return 'endurance'
+        return 'Endurance'
       case 'strength':
-        return 'force'
+        return 'Force'
       case 'speed':
-        return 'vitesse'
+        return 'Vitesse'
       case 'intensity':
-        return 'intensité'
+        return 'Intensité'
       default:
         return 'Vitesse'
     }

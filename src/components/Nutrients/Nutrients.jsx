@@ -10,38 +10,38 @@ import PropTypes from 'prop-types'
 export default function Nutrients(props) {
   console.log('nutrients', props)
 
-  let valueType = props.name === 'calorieCount' ? 'kCal' : 'g'
+  // let valueType = props.name === 'calorieCount' ? 'kCal' : 'g'
 
-  const cases = {
-    calorieCount: {
-      nutType: 'Calories',
-      styling: styles.calorie,
-    },
-    proteinCount: {
-      nutType: 'Protéines',
-      styling: styles.protein,
-    },
-    carbohydrateCount: {
-      nutType: 'Glucides',
-      styling: styles.carbohydrate,
-    },
-    lipidCount: {
-      nutType: 'Lipides',
-      styling: styles.lipid,
-    },
-  }
+  // const cases = {
+  //   calorieCount: {
+  //     nutType: 'Calories',
+  //     styling: styles.calorie,
+  //   },
+  //   proteinCount: {
+  //     nutType: 'Protéines',
+  //     styling: styles.protein,
+  //   },
+  //   carbohydrateCount: {
+  //     nutType: 'Glucides',
+  //     styling: styles.carbohydrate,
+  //   },
+  //   lipidCount: {
+  //     nutType: 'Lipides',
+  //     styling: styles.lipid,
+  //   },
+  // }
 
   return (
     <div className={styles.nutrientContainer}>
-      <div className={`${styles.iconContainer} ${cases[props.name].styling}`}>
+      <div className={`${styles.iconContainer} ${props.value.styling}`}>
         <img src={`/assets/nutrients/${props.name}.svg`} alt="" />
       </div>
       <div className={styles.nutrientInfo}>
         <p className={styles.nutrientValue}>
-          {props.value.toLocaleString('en-US')}
-          {valueType}
+          {props.value.count.toLocaleString('en-US')}
+          {props.value.unit}
         </p>
-        <p className={styles.nutrientName}>{cases[props.name].nutType}</p>
+        <p className={styles.nutrientName}>{props.value.nutType}</p>
       </div>
     </div>
   )

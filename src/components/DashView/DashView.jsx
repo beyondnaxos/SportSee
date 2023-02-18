@@ -41,7 +41,7 @@ export default function DashView() {
 
     console.log(userDatas)
 
-    setUserDatas(userDatas.keyData)
+    setUserDatas(userDatas.nutType)
     setUserInfos(userDatas.userInfos)
     setUserScore(userDatas.todayScore)
     setAverage(averageSession)
@@ -77,8 +77,8 @@ export default function DashView() {
 
         <section className={styles.nutrients}>
           {userDatas &&
-            Object.entries(userDatas).map(([key, value, index]) => (
-              <Nutrients key={uuid()} name={key} value={value} index={index} />
+            Object.entries(userDatas).map(([key, value], index) => (
+              <Nutrients key={uuid()} name={key} value={value} index={index}/>
             ))}
         </section>
       </section>

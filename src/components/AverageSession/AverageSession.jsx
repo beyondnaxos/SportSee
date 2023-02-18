@@ -38,15 +38,20 @@ export default function AverageSession(props) {
           dataKey="name"
           stroke="white"
           tickLine={false}
+          tick={{ fill: "white", opacity: 0.5 }} 
+          tickMargin={20} 
+          height={50}
           axisLine={false}
-          domain={['dataMin - 50', 'dataMax - 50']}
+          // domain={['dataMin - 50', 'dataMax - 50']}
         />
         <Tooltip stroke="black" color="black" />
         <Line
-          dot={false}
-          type="monotone"
+          dot={false}       
+          type="basis"
           dataKey="duration"
-          strokeWidth="2"
+          strokeWidth={2.5} 
+          // stroke={"white"}
+          opacity={0.85}
           stroke="url(#colorUv)"
         />
       </LineChart>
