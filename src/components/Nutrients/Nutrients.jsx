@@ -33,7 +33,7 @@ export default function Nutrients(props) {
 
   return (
     <div className={styles.nutrientContainer}>
-      <div className={`${styles.iconContainer} ${props.value.styling}`}>
+      <div className={`${styles.iconContainer} ${styles[props.value.styling]}`}>
         <img src={`/assets/nutrients/${props.name}.svg`} alt="" />
       </div>
       <div className={styles.nutrientInfo}>
