@@ -44,9 +44,13 @@ export default function BarChartComp(props) {
           />
           <Legend
             verticalAlign="top"
-            height={36}
             align="right"
+            iconType="circle"
             wrapperStyle={{ left: -10, top: -25 }}
+            formatter={(value) => (
+              <span className={styles.textColorLegend}>{value}</span>
+            )}
+           
           />
           <XAxis dataKey="name" />
           <YAxis
@@ -59,15 +63,17 @@ export default function BarChartComp(props) {
           <Tooltip
             content={<CustomTooltip />}
             animationEasing="ease-out"
-            wrapperStyle={{ outline: 'none' , left: 30, top: -21 } }
+            wrapperStyle={{ outline: 'none', left: 30, top: -21 }}
           />
           <Bar
+            name="Poids (kg)"
             dataKey="kilogrammes"
             fill="#282D30"
             barSize={7}
             radius={[3, 3, 0, 0]}
           />
           <Bar
+            name="Calories brûlées (kCal)"
             dataKey="calories"
             fill="#E60000"
             barSize={7}
