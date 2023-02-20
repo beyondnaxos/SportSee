@@ -1,7 +1,6 @@
 .container {
     width: calc(100% - 117px);
-    /* padding: 63px 90px 90px 109px; */
-    padding: 60px 90px 0px 109px;
+    padding: 60px 70px 0px 109px;
     font-family: roboto;
 }
 
@@ -10,6 +9,7 @@
     align-items: center;
     height: 613px;
     margin-top: 40px;
+    justify-content: space-between;
 }
 
 .title, .name {
@@ -38,7 +38,7 @@
     flex-direction: column;
     justify-content: space-between;
     height: 100%;
-    row-gap: 40px;
+    /* row-gap: 40px; */
 }
 
 .chartsContainer {

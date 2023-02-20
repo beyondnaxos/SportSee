@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types'
 import { RadialBarChart, RadialBar } from 'recharts'
+
 import styles from './Pie.module.css'
 
 /**
@@ -16,35 +17,39 @@ export default function PieComp(props) {
     {
       name: 'score',
       fill: '#fff',
-      uv: 100 - props.score * 100,
+      value: 100 - props.score * 100,
     },
     {
       name: 'score',
-      uv: props.score * 100,
+      value: props.score * 100,
       pv: 10,
       fill: '#FF0101',
     },
   ]
+
+  
+  
 
   const renderPieChart = (
     <div className={styles.chartContainer}>
       <RadialBarChart
         width={258}
         height={258}
-        innerRadius="40%"
-        outerRadius="60%"
         data={data}
         startAngle={0}
         endAngle={360}
-        // startAngle={-180}
-        // endAngle={-300}
+        cx="50%"
+        cy="50%"
+        innerRadius={70}
+        outerRadius={80}
+        paddingAngle={0}
+        cornerRadius={10}
+        stroke="none"
       >
         <RadialBar
           minAngle={15}
-          //   label={{ fill: '#666', position: 'insideStart' }}
-          //   background
           clockWise={true}
-          dataKey="uv"
+          dataKey="value"
         />
         {/* <Tooltip /> */}
       </RadialBarChart>

@@ -1,0 +1,61 @@
+.errorpage {
+    /* width: 100%;
+    height: 600px;
+     */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #FF6060;
+    /* position: absolute;
+    top: 20%; */
+    margin-top: 174px;
+    margin-bottom: 150px;
+
+}
+
+.bignumber {
+    font-size: 263px;
+}
+
+.bigquote {
+    font-size: 51px;
+    margin-bottom: 200px;
+}
+
+.redirect {
+    font-size: 25px;
+    color: #FF6060;
+    font-weight: 500;
+
+}
+
+@media screen and (max-width : 480px) {
+
+    .errorpage {
+
+        align-items: center;
+        color: #FF6060;
+        position: absolute;
+        top: 0;
+    }
+
+    .bignumber {
+        font-size: 53px;
+        margin-bottom: 10px;
+    }
+
+    .bigquote {
+        font-size: 18px;
+        width: 260px;
+        margin-bottom: 100px;
+        text-align: center;
+    }
+
+    .redirect {
+        font-size: 12px;
+        color: #FF6060;
+        font-weight: 500;
+    }
+
+}
