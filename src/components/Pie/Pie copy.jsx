@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types'
-import { RadialBarChart, RadialBar } from 'recharts'
+import { RadialBarChart, RadialBar, Label } from 'recharts'
 
 import styles from './Pie.module.css'
 
