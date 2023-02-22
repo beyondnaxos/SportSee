@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types'
 // import pie
-import { PieChart, Pie, ResponsiveContainer, PolarAngleAxis } from 'recharts'
+import { PieChart, Pie, ResponsiveContainer } from 'recharts'
 
 import styles from './Pie.module.css'
 
@@ -12,7 +12,6 @@ import styles from './Pie.module.css'
  */
 
 export default function PieComp(props) {
-  console.log('pie', props)
 
   const data = [
     {
@@ -30,6 +29,7 @@ export default function PieComp(props) {
       full: 0,
     },
   ]
+
 
   const renderLabel = () => {
     return (
@@ -63,7 +63,6 @@ export default function PieComp(props) {
             cornerRadius={10}
             startAngle={-180}
             stroke="none"
-            // label={renderLabel}
           ></Pie>
           <Pie
             data={data}

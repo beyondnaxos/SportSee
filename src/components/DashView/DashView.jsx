@@ -7,7 +7,8 @@ import PieComp from '../Pie/Pie'
 import Nutrients from '../Nutrients/Nutrients'
 import uuid from 'react-uuid'
 import { useParams } from 'react-router-dom'
-import {store} from '../../config'
+import { store } from '../../config'
+import Error from '../Error/Error'
 
 /* A function that returns a JSX element with a view of each charts components */
 
@@ -28,26 +29,32 @@ export default function DashView() {
   }, [])
 
   const promiseAll = async () => {
-    const [userDatas, averageSession, userActivity, userPerformance] =
-      await Promise.all([
-        store.getUserId(id),
-        store.getUserAverageSession(id),
-        store.getUserActivity(id),
-        store.getUserPerformance(id),
-      ])
+    try {
+      const [userDatas, averageSession, userActivity, userPerformance] =
+        await Promise.all([
+          store.getUserId(id),
+          store.getUserAverageSession(id),
+          store.getUserActivity(id),
+          store.getUserPerformance(id),
+        ])
 
-    setUserDatas(userDatas.nutType)
-    setUserInfos(userDatas.userInfos)
-    setUserScore(userDatas.todayScore)
-    setAverage(averageSession)
-    setUserActivity(userActivity)
-    setUserPerformance(userPerformance)
-    setKind(userPerformance.kind)
+      setUserDatas(userDatas.nutType)
+      setUserInfos(userDatas.userInfos)
+      setUserScore(userDatas.todayScore)
+      setAverage(averageSession)
+      setUserActivity(userActivity)
+      setUserPerformance(userPerformance)
+      setKind(userPerformance.kind)
 
+    } catch (error) {
+      console.log(error)
+    }
   }
 
   return (
     <div className={styles.container}>
+      {userActivity.length > 0 ? (
+        <>
       <h1 className={styles.title}>
         Bonjour{' '}
         <span className={styles.name}>{userInfos && userInfos.firstName}</span>
@@ -57,25 +64,34 @@ export default function DashView() {
         Félicitation ! Vous avez explosé vos objectifs hier 👏
       </h3>
 
-      <section className={styles.chartsContainerGroup}>
-        <section className={styles.allCharts}>
-          {userActivity.length > 0 && <BarChartComp datas={userActivity} />}
-          <div className={styles.chartsContainer}>
-            {average !== undefined && <AverageSession average={average} />}
-            {userPerformance.length > 0 && (
-              <RadarComp datas={userPerformance} kind={kind} />
-            )}
-            {userScore !== undefined && <PieComp score={userScore} />}
-          </div>
-        </section>
+        <section className={styles.chartsContainerGroup}>
+          <section className={styles.allCharts}>
+            {userActivity.length > 0 && <BarChartComp datas={userActivity} />}
+            <div className={styles.chartsContainer}>
+              {average !== undefined && <AverageSession average={average} />}
+              {userPerformance.length > 0 && (
+                <RadarComp datas={userPerformance} kind={kind} />
+              )}
+              {userScore !== undefined && <PieComp score={userScore} />}
+            </div>
+          </section>
 
-        <section className={styles.nutrients}>
-          {userDatas &&
-            Object.entries(userDatas).map(([key, value], index) => (
-              <Nutrients key={uuid()} name={key} value={value} index={index}/>
-            ))}
+          <section className={styles.nutrients}>
+            {userDatas &&
+              Object.entries(userDatas).map(([key, value], index) => (
+                <Nutrients
+                  key={uuid()}
+                  name={key}
+                  value={value}
+                  index={index}
+                />
+              ))}
+          </section>
         </section>
-      </section>
+        </>
+      ) : (
+        <Error />
+      )}
     </div>
   )
 }

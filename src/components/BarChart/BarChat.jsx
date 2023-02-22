@@ -20,6 +20,7 @@ import styles from './BarChart.module.css'
  */
 
 export default function BarChartComp(props) {
+  
   const CustomTooltip = ({ active, payload }) => {
     if (active && payload) {
       return (
