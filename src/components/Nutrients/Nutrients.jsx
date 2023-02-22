@@ -10,27 +10,6 @@ import PropTypes from 'prop-types'
 export default function Nutrients(props) {
   console.log('nutrients', props)
 
-  // let valueType = props.name === 'calorieCount' ? 'kCal' : 'g'
-
-  // const cases = {
-  //   calorieCount: {
-  //     nutType: 'Calories',
-  //     styling: styles.calorie,
-  //   },
-  //   proteinCount: {
-  //     nutType: 'Protéines',
-  //     styling: styles.protein,
-  //   },
-  //   carbohydrateCount: {
-  //     nutType: 'Glucides',
-  //     styling: styles.carbohydrate,
-  //   },
-  //   lipidCount: {
-  //     nutType: 'Lipides',
-  //     styling: styles.lipid,
-  //   },
-  // }
-
   return (
     <div className={styles.nutrientContainer}>
       <div className={`${styles.iconContainer} ${styles[props.value.styling]}`}>
@@ -49,5 +28,11 @@ export default function Nutrients(props) {
 
 Nutrients.propTypes = {
   name: PropTypes.string,
-  value: PropTypes.number,
+  value:  PropTypes.shape({
+      count: PropTypes.number,
+      nutType: PropTypes.string,
+      styling: PropTypes.string,
+      unit: PropTypes.string,
+    })
+  
 }

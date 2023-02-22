@@ -1,7 +1,5 @@
 import React, { useEffect, useState } from 'react'
 import styles from './DashView.module.css'
-import Store from '../../../service/store'
-import MockStore from '../../../service/mockStore'
 import AverageSession from '../AverageSession/AverageSession'
 import RadarComp from '../Radar/RadarComp'
 import BarChartComp from '../BarChart/BarChat'
@@ -9,8 +7,7 @@ import PieComp from '../Pie/Pie'
 import Nutrients from '../Nutrients/Nutrients'
 import uuid from 'react-uuid'
 import { useParams } from 'react-router-dom'
-
-let store = import.meta.env.VITE_DATA === 'MOCK' ? MockStore : Store
+import {store} from '../../config'
 
 /* A function that returns a JSX element with a view of each charts components */
 
@@ -39,8 +36,6 @@ export default function DashView() {
         store.getUserPerformance(id),
       ])
 
-    console.log(userDatas)
-
     setUserDatas(userDatas.nutType)
     setUserInfos(userDatas.userInfos)
     setUserScore(userDatas.todayScore)
@@ -49,7 +44,6 @@ export default function DashView() {
     setUserPerformance(userPerformance)
     setKind(userPerformance.kind)
 
-    console.log(userActivity)
   }
 
   return (

@@ -4,12 +4,14 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
+    "data-api": "env-cmd -e api vite",
+    "data-mock": "env-cmd -e mock vite",
     "build": "vite build",
     "preview": "vite preview"
   },
   "dependencies": {
     "axios": "^1.2.2",
+    "env-cmd": "^10.1.0",
     "prop-types": "^15.8.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",

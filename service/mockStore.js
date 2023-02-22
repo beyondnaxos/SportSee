@@ -1,17 +1,27 @@
 import mockData from "./mock.json";
+import UserDataModel from './Models/userModel';
+import AverageModel from './Models/averageModel';
+import ActivityModel from './Models/activityModel';
+import PerformanceModel from './Models/perfsModel';
 
 const MockStore = {
   getUserId: async () => {
-    return Promise.resolve(mockData.data);
+    const userData = new UserDataModel(mockData.data)
+    return Promise.resolve(userData);
   },
   getUserActivity: async () => {
-    return Promise.resolve(mockData.activity);
+    const activityData = new ActivityModel(mockData.activity)
+    console.log(activityData)
+    return Promise.resolve(activityData.mappedData);
   },
   getUserAverageSession: async () => {
-    return Promise.resolve(mockData.averageSessions);
+    const averageData = new AverageModel(mockData.averageSessions)
+    console.log(averageData);
+    return Promise.resolve(averageData.mappedData);
   },
   getUserPerformance: async () => {
-    return Promise.resolve(mockData.performance);
+    const performanceData = new PerformanceModel(mockData.performance)
+    return Promise.resolve(performanceData.mappedData);
   },
 };
 
