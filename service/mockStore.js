@@ -11,12 +11,10 @@ const MockStore = {
   },
   getUserActivity: async () => {
     const activityData = new ActivityModel(mockData.activity)
-    console.log(activityData)
     return Promise.resolve(activityData.mappedData);
   },
   getUserAverageSession: async () => {
     const averageData = new AverageModel(mockData.averageSessions)
-    console.log(averageData);
     return Promise.resolve(averageData.mappedData);
   },
   getUserPerformance: async () => {

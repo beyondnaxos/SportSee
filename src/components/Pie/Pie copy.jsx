@@ -30,17 +30,20 @@ export default function PieComp(props) {
   const renderLabel = () => {
     return (
       <p className={styles.objectif}>
-      <span className={styles.objectifValue}>{props.score * 100}%</span>
-      <br />
-      de votre
-      <br />
-      objectif
-    </p>
+        <span className={styles.objectifValue}>{props.score * 100}%</span>
+        <br />
+        de votre
+        <br />
+        objectif
+      </p>
     )
   }
 
-  
-  
+  {
+    /* {data.map((entry, index) => (
+              <Cell key={`cell-${index}`} fill={entry.fill} />
+            ))} */
+  }
 
   const renderPieChart = (
     <div className={styles.chartContainer}>
@@ -59,22 +62,18 @@ export default function PieComp(props) {
         stroke="none"
         label={renderLabel}
       >
-        <RadialBar
-          minAngle={15}
-          clockWise={true}
-          dataKey="value"
-        />
+        <RadialBar minAngle={15} clockWise={true} dataKey="value" />
         {/* <Tooltip /> */}
       </RadialBarChart>
       {/* <Label content={<CustomizedLabel  />} /> */}
       {/* <Label content={renderLabel} position="center" /> */}
       <p className={styles.objectif}>
-      <span className={styles.objectifValue}>{props.score * 100}%</span>
-      <br />
-      de votre
-      <br />
-      objectif
-    </p>
+        <span className={styles.objectifValue}>{props.score * 100}%</span>
+        <br />
+        de votre
+        <br />
+        objectif
+      </p>
     </div>
   )
 

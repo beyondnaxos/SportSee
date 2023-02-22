@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types'
-import { RadialBarChart, RadialBar } from 'recharts'
+// import pie
+import { PieChart, Pie, ResponsiveContainer, PolarAngleAxis } from 'recharts'
 
 import styles from './Pie.module.css'
 
@@ -18,63 +19,66 @@ export default function PieComp(props) {
       name: 'score',
       fill: '#fff',
       value: 100 - props.score * 100,
+      pv: 10,
+      full: 200,
     },
     {
       name: 'score',
       value: props.score * 100,
       pv: 10,
       fill: '#FF0101',
+      full: 0,
     },
   ]
 
   const renderLabel = () => {
     return (
-      <p className={styles.objectif}>
-      <span className={styles.objectifValue}>{props.score * 100}%</span>
-      <br />
-      de votre
-      <br />
-      objectif
-    </p>
+      <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%">
+        <text x="106" y="125">
+          <tspan className={styles.rateScoreText}>{props.score * 100}%</tspan>
+        </text>
+        <text x="100" y="150">
+          <tspan className={styles.sub}>de votre</tspan>
+        </text>
+        <text x="101" y="175">
+          <tspan className={styles.sub}>objectif</tspan>
+        </text>
+      </svg>
     )
   }
 
-  
-  
-
   const renderPieChart = (
     <div className={styles.chartContainer}>
-      <RadialBarChart
-        width={258}
-        height={258}
-        data={data}
-        startAngle={0}
-        endAngle={360}
-        cx="50%"
-        cy="50%"
-        innerRadius={70}
-        outerRadius={80}
-        paddingAngle={0}
-        cornerRadius={10}
-        stroke="none"
-        label={renderLabel}
-      >
-        <RadialBar
-          minAngle={15}
-          clockWise={true}
-          dataKey="value"
-        />
-        {/* <Tooltip /> */}
-      </RadialBarChart>
-      {/* <Label content={<CustomizedLabel  />} /> */}
-      {/* <Label content={renderLabel} position="center" /> */}
-      <p className={styles.objectif}>
-      <span className={styles.objectifValue}>{props.score * 100}%</span>
-      <br />
-      de votre
-      <br />
-      objectif
-    </p>
+      <ResponsiveContainer width="100%" height="100%">
+        <PieChart>
+          <Pie
+            data={data}
+            dataKey="value"
+            nameKey="name"
+            cx="50%"
+            cy="50%"
+            innerRadius={80}
+            outerRadius={90}
+            paddingAngle={0}
+            cornerRadius={10}
+            startAngle={-180}
+            stroke="none"
+            // label={renderLabel}
+          ></Pie>
+          <Pie
+            data={data}
+            dataKey="full"
+            nameKey="name"
+            cx="50%"
+            cy="50%"
+            innerRadius={0}
+            outerRadius={80}
+            paddingAngle={0}
+            stroke="none"
+            label={renderLabel}
+          ></Pie>
+        </PieChart>
+      </ResponsiveContainer>
     </div>
   )
 
