@@ -45,7 +45,6 @@ export default function DashView() {
       setUserActivity(userActivity)
       setUserPerformance(userPerformance)
       setKind(userPerformance.kind)
-
     } catch (error) {
       console.log(error)
     }
@@ -53,45 +52,45 @@ export default function DashView() {
 
   return (
     <div className={styles.container}>
-      {userActivity.length > 0 ? (
+      {userActivity.length > 0 ? 
         <>
-      <h1 className={styles.title}>
-        Bonjour{' '}
-        <span className={styles.name}>{userInfos && userInfos.firstName}</span>
-      </h1>
+          <h1 className={styles.title}>
+            Bonjour{' '}
+            <span className={styles.name}>
+              {userInfos && userInfos.firstName}
+            </span>
+          </h1>
 
-      <h3 className={styles.subtitle}>
-        Félicitation ! Vous avez explosé vos objectifs hier 👏
-      </h3>
+          <h3 className={styles.subtitle}>
+            Félicitation ! Vous avez explosé vos objectifs hier 👏
+          </h3>
 
-        <section className={styles.chartsContainerGroup}>
-          <section className={styles.allCharts}>
-            {userActivity.length > 0 && <BarChartComp datas={userActivity} />}
-            <div className={styles.chartsContainer}>
-              {average !== undefined && <AverageSession average={average} />}
-              {userPerformance.length > 0 && (
-                <RadarComp datas={userPerformance} kind={kind} />
-              )}
-              {userScore !== undefined && <PieComp score={userScore} />}
-            </div>
+          <section className={styles.chartsContainerGroup}>
+            <section className={styles.allCharts}>
+              {userActivity.length > 0 && <BarChartComp datas={userActivity} />}
+              <div className={styles.chartsContainer}>
+                {average !== undefined && <AverageSession average={average} />}
+                {userPerformance.length > 0 && (
+                  <RadarComp datas={userPerformance} kind={kind} />
+                )}
+                {userScore !== undefined && <PieComp score={userScore} />}
+              </div>
+            </section>
+
+            <section className={styles.nutrients}>
+              {userDatas &&
+                Object.entries(userDatas).map(([key, value], index) => (
+                  <Nutrients
+                    key={uuid()}
+                    name={key}
+                    value={value}
+                    index={index}
+                  />
+                ))}
+            </section>
           </section>
-
-          <section className={styles.nutrients}>
-            {userDatas &&
-              Object.entries(userDatas).map(([key, value], index) => (
-                <Nutrients
-                  key={uuid()}
-                  name={key}
-                  value={value}
-                  index={index}
-                />
-              ))}
-          </section>
-        </section>
         </>
-      ) : (
-        <Error />
-      )}
+       : <Error /> }
     </div>
   )
 }

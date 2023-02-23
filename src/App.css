@@ -16,3 +16,13 @@ body {
   height: calc(100vh - 91px);
   /* background-color: blue; */
 }
+
+/* mediaquery */
+
+@media screen and (max-width: 1024px) {
+  .main {
+    flex-direction: row;
+    height: 100vw;
+    width: 1024px;
+  }
+}

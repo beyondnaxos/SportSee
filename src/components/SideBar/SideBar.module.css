@@ -25,3 +25,32 @@
     position: absolute;
     bottom: 150px;
 }
+
+/* responsive 1024 780 */
+
+@media screen and (max-width: 1024px) {
+    .navcontainer {
+        width: 117px;
+        /* height: 100%; */
+        position: relative;
+        z-index: -100;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.75);
+    }
+    .linkcontainer {
+        margin-top: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-around;
+        width: 100%;
+        height: 50%;
+        row-gap: 0;
+    }
+    .copiryght {
+        /* display: none; */
+    }
+}

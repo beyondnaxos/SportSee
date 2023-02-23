@@ -39,3 +39,9 @@
     color: #74798C;
 
 }
+
+@media screen and (max-width: 1024px) {
+    .chartContainer {
+       height: 300px;
+    }
+}

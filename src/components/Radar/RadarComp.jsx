@@ -1,5 +1,11 @@
 import PropTypes from 'prop-types'
-import { RadarChart, PolarGrid, PolarAngleAxis, Radar } from 'recharts'
+import {
+  RadarChart,
+  PolarGrid,
+  PolarAngleAxis,
+  Radar,
+  ResponsiveContainer,
+} from 'recharts'
 import styles from './RadarComp.module.css'
 
 /**
@@ -9,22 +15,27 @@ import styles from './RadarComp.module.css'
  */
 
 export default function RadarComp(props) {
+  // if view is mobile, change the size of the chart
+  const isSmallDesktop = window.innerWidth <= 1024
+
   console.log('radarComp', props)
 
   const renderRadarChart = (
-    <div className={styles.chartContainer}>
-      <RadarChart
-        outerRadius={90}
-        width={248}
-        height={253}
-        data={props.datas}
-        innerRadius={30}
-      >
-        <PolarGrid gridType="polygon" radialLines={false} />
-        <PolarAngleAxis dataKey="subject" fontSize={12} />
-        <Radar dataKey="key" fill="#FF0000" fillOpacity={0.6} />
-      </RadarChart>
-    </div>
+    <ResponsiveContainer width={'100%'} height={250}>
+      <div className={styles.chartContainer}>
+        <RadarChart
+          outerRadius={90}
+          width={248}
+          height={253}
+          data={props.datas}
+          innerRadius={30}
+        >
+          <PolarGrid gridType="polygon" radialLines={false} />
+          <PolarAngleAxis dataKey="subject" fontSize={12} />
+          <Radar dataKey="key" fill="#FF0000" fillOpacity={0.6} />
+        </RadarChart>
+      </div>
+    </ResponsiveContainer>
   )
   return <div>{renderRadarChart}</div>
 }

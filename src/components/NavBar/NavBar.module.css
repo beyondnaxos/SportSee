@@ -43,3 +43,15 @@
     line-height: 21px;
     letter-spacing: 0.02em;
 }
+
+/* responsive 1024 par 780 vmin vmax */
+
+@media screen and (max-width: 1024px) {
+    .navbar {
+        width: 1024px;
+        min-width: 1024px;
+    }
+    .navlinks {
+        padding: 0 90px 0 28px;
+    }
+}
