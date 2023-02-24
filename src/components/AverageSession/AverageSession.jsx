@@ -18,6 +18,23 @@ import styles from './AverageSession.module.css'
  */
 
 export default function AverageSession(props) {
+
+  const CustomDot = (props) => {
+    const { cx, cy } = props;
+  
+    return (
+      <circle
+        cx={cx}
+        cy={cy}
+        r={5}
+        stroke="rgb(255, 255, 255, 0.2)"
+        strokeWidth={15}
+        fill="white"
+      />
+    );
+  };
+
+
   const CustomCursor = (props) => {
     const { points } = props
     const { x, y } = points[0]
@@ -100,7 +117,9 @@ export default function AverageSession(props) {
         />
         <Line
           dot={false}
+          activeDot={<CustomDot />}
           type="basis"
+          
           dataKey="duration"
           strokeWidth={2.5}
           opacity={0.85}

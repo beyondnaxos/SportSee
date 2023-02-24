@@ -15,12 +15,13 @@ import styles from './BarChart.module.css'
 /**
  * It takes an array of objects as a prop, maps over the array, and returns a new array of objects with
  * the same keys but different values.
- * @param {{datas : Array<{day : string, kilogram : number, calories : number}>}} props datas refers to the weight and colories of the user and day of activity
+ * @param {{datas : Array<{name : number, kilogrammes : number, calories : number}>}} props datas refers to the weight and colories of the user and day of activity
  * @returns An array of objects.
  */
 
 export default function BarChartComp(props) {
-  
+  console.log(props)
+
   const CustomTooltip = ({ active, payload }) => {
     if (active && payload) {
       return (
@@ -51,17 +52,28 @@ export default function BarChartComp(props) {
             formatter={(value) => (
               <span className={styles.textColorLegend}>{value}</span>
             )}
-           
           />
-          <XAxis dataKey="name"  tickLine={false} />
-         
+          <XAxis dataKey="name" tickLine={false} />
+
           <YAxis
             tickLine={false}
             axisLine={false}
             tickCount={3}
             orientation="right"
             stroke="#9B9EAC"
-            // yAxisId="calories"
+            domain={["dataMin - 100", "dataMax + 100"]}
+            hide={true}
+            yAxisId="calories"
+            />
+          <YAxis
+            tickLine={false}
+            axisLine={false}
+            tickCount={3}
+            orientation="right"
+            stroke="#9B9EAC"
+            yAxisId="kilogrammes"
+            domain={["dataMin - 2", "dataMax + 2"]}
+            
             />
           <Tooltip
             content={<CustomTooltip />}
@@ -71,6 +83,7 @@ export default function BarChartComp(props) {
           <Bar
             name="Poids (kg)"
             dataKey="kilogrammes"
+            yAxisId="kilogrammes"
             fill="#282D30"
             barSize={7}
             radius={[3, 3, 0, 0]}
@@ -78,6 +91,7 @@ export default function BarChartComp(props) {
           <Bar
             name="Calories brûlées (kCal)"
             dataKey="calories"
+            yAxisId="calories"
             fill="#E60000"
             barSize={7}
             radius={[3, 3, 0, 0]}
@@ -92,10 +106,10 @@ export default function BarChartComp(props) {
 
 BarChartComp.propTypes = {
   datas: PropTypes.arrayOf(
-    PropTypes.shape({
-      day: PropTypes.string,
-      kilogram: PropTypes.number,
-      calories: PropTypes.number,
-    })
-  ),
+    PropTypes.exact({
+      name: PropTypes.number.isRequired,
+      kilogrammes: PropTypes.number.isRequired,
+      calories: PropTypes.number.isRequired,
+    }).isRequired
+  ).isRequired,
 }

@@ -61,7 +61,8 @@ export default function PieComp(props) {
             outerRadius={90}
             paddingAngle={0}
             cornerRadius={10}
-            startAngle={-180}
+            startAngle={90}
+            endAngle={450}
             stroke="none"
           ></Pie>
           <Pie

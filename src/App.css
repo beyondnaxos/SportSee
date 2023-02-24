@@ -17,7 +17,10 @@ body {
   /* background-color: blue; */
 }
 
-/* mediaquery */
+path.recharts-curve.recharts-pie-label-line {
+  display: none !important;
+}
+
 
 @media screen and (max-width: 1024px) {
   .main {
@@ -26,3 +29,4 @@ body {
     width: 1024px;
   }
 }
+
