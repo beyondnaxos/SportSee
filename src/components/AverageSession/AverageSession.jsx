@@ -1,5 +1,13 @@
 import PropTypes from 'prop-types'
-import { LineChart, Line, CartesianGrid, XAxis,Tooltip, Legend } from 'recharts'
+import {
+  LineChart,
+  Line,
+  CartesianGrid,
+  XAxis,
+  Tooltip,
+  Legend,
+  Rectangle,
+} from 'recharts'
 import styles from './AverageSession.module.css'
 
 /**
@@ -10,16 +18,19 @@ import styles from './AverageSession.module.css'
  */
 
 export default function AverageSession(props) {
-  
-  const CustomTooltip = ({ active, payload }) => {
-    if (active && payload) {
-      return (
-        <div className={styles.averageTooltip}>
-          <p className={styles.caloriesLabel}></p>
-        </div>
-      )
-    }
-    return null
+  const CustomCursor = (props) => {
+    const { points } = props
+    const { x, y } = points[0]
+    return (
+      <Rectangle
+        fill="black"
+        fillOpacity={0.1}
+        x={x}
+        y={y - 100}
+        width={400}
+        height={400}
+      />
+    )
   }
 
   const lengendText = () => {
@@ -73,14 +84,18 @@ export default function AverageSession(props) {
           axisLine={false}
         />
         <Tooltip
-          // cursor relative to the line chart
-          cursor={{ fill: 'white' }}
-                
+          cursor={<CustomCursor />}
           stroke="black"
           labelFormatter={() => ``}
-          formatter={(value) => [value + " min"]}
+          formatter={(value) => [value + ' min']}
           color="black"
-          wrapperStyle={{ outline: 'none' , fontSize: '8px', height:"24px", alignContent:"center", fontWeight:"bold"}}
+          wrapperStyle={{
+            outline: 'none',
+            fontSize: '8px',
+            height: '24px',
+            alignContent: 'center',
+            fontWeight: 'bold',
+          }}
           position="top"
         />
         <Line
@@ -88,8 +103,6 @@ export default function AverageSession(props) {
           type="basis"
           dataKey="duration"
           strokeWidth={2.5}
-          
-          // stroke={"white"}
           opacity={0.85}
           stroke="url(#colorUv)"
         />
