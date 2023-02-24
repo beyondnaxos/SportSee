@@ -15,9 +15,7 @@ import styles from './RadarComp.module.css'
  */
 
 export default function RadarComp(props) {
-  // if view is mobile, change the size of the chart
-  const isSmallDesktop = window.innerWidth <= 1024
-
+ 
   console.log('radarComp', props)
 
   const renderRadarChart = (
@@ -30,8 +28,16 @@ export default function RadarComp(props) {
           data={props.datas}
           innerRadius={30}
         >
-          <PolarGrid gridType="polygon" radialLines={false} />
-          <PolarAngleAxis dataKey="subject" fontSize={12} />
+          <PolarGrid
+            gridType="polygon"
+            radialLines={false}
+            tick={{ fill: 'white' }}
+          />
+          <PolarAngleAxis
+            dataKey="subject"
+            fontSize={12}
+            tick={{ fill: 'white', fontSize: '12px' }}
+          />
           <Radar dataKey="key" fill="#FF0000" fillOpacity={0.6} />
         </RadarChart>
       </div>

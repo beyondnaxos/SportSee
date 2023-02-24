@@ -8,6 +8,12 @@
     /* padding-top: 40px; */
 }
 
+.averageTooltip {
+  width: 30px;
+  height: 30px;
+  background-color: #fff;
+}
+
 /* mq */
 @media screen and (max-width: 1024px) {
     .chartContainer {

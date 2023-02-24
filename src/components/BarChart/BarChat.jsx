@@ -53,14 +53,16 @@ export default function BarChartComp(props) {
             )}
            
           />
-          <XAxis dataKey="name" />
+          <XAxis dataKey="name"  tickLine={false} />
+         
           <YAxis
-            orientation="right"
             tickLine={false}
             axisLine={false}
             tickCount={3}
+            orientation="right"
             stroke="#9B9EAC"
-          />
+            // yAxisId="calories"
+            />
           <Tooltip
             content={<CustomTooltip />}
             animationEasing="ease-out"
