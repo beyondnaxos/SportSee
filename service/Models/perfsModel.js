@@ -1,14 +1,16 @@
 export default class PerfsModel {
   constructor(data) {
-    this.mappedData = data.data.map((item, index) => {
-      return {
-        subject: this.translate(data.kind[index + 1]),
-        key: item.value,
-        fullMark: 150,
-      }
-    }).reverse()
+    this.mappedData = data.data
+      .map((item, index) => {
+        return {
+          subject: this.translate(data.kind[index + 1]),
+          key: item.value,
+          fullMark: 150,
+        }
+      })
+      .reverse()
   }
-  
+
   translate = (kind) => {
     switch (kind) {
       case 'cardio':
