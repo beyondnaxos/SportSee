@@ -3,10 +3,12 @@ import { useNavigate } from 'react-router-dom'
 import styles from './IdChoose.module.css'
 import {whereAreWe} from '../../config'
 
+/**
+ * It's a function that returns a div with a form that allows the user to choose an id.
+ * @returns A function
+ */
 
 function IdChoose() {
-
-  // const userContext = useContext(AuthContext)
 
   const [id, setId] = useState('')
 
@@ -33,6 +35,7 @@ function IdChoose() {
       </button>
     </div>
   )
+  
 }
 
 export default IdChoose

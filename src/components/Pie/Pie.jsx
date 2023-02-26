@@ -5,14 +5,13 @@ import { PieChart, Pie, ResponsiveContainer } from 'recharts'
 import styles from './Pie.module.css'
 
 /**
- * It takes a score as a prop and returns a pie chart with a percentage of the score.
- * </code>
- * @returns A React component.
- * @param {{score : number}} props score refers to the score of the user
- */
+This component takes a user's score as a prop and displays it as a percentage in a pie chart.
+@param {Object} props - The props object for this component.
+@param {number} props.score - The score of the user to be displayed in the pie chart.
+@returns {ReactNode} A React component that displays the user's score as a percentage in a pie chart.
+*/
 
 export default function PieComp(props) {
-
   const data = [
     {
       name: 'score',
@@ -29,8 +28,7 @@ export default function PieComp(props) {
       full: 0,
     },
   ]
-
-
+  
   const renderLabel = () => {
     return (
       <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%">

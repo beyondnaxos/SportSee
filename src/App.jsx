@@ -7,6 +7,15 @@ import ScrollToTop from './components/ScrollToTop/ScrollToTop';
 import SideBar from './components/SideBar/SideBar';
 
 
+
+
+/**
+ * The App function returns a BrowserRouter component that contains a ScrollToTop component, a NavBar
+ * component, a section component with a className of "main" that contains a SideBar component and a
+ * Routing component
+ * @returns The return statement is returning the JSX code that is being rendered to the DOM.
+ */
+
 function App() {
 
   return (

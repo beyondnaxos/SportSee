@@ -1,11 +1,11 @@
 .chartContainer {
-    background-color: #FF0101;
-    width: 258px;
-    height: 263px;
-    display: flex;
-    justify-content: center;
-    border-radius: 5px;
-    /* padding-top: 40px; */
+  background-color: #FF0101;
+  width: 258px;
+  height: 263px;
+  display: flex;
+  justify-content: center;
+  border-radius: 5px;
+  /* padding-top: 40px; */
 }
 
 .averageTooltip {
@@ -16,7 +16,5 @@
 
 /* mq */
 @media screen and (max-width: 1024px) {
-    .chartContainer {
-    
-    }
+  .chartContainer {}
 }

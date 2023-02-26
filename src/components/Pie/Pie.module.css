@@ -10,9 +10,9 @@
 }
 
 .objectif {
-position: absolute;
-text-align: center;
-color: gray;
+    position: absolute;
+    text-align: center;
+    color: gray;
 }
 
 
@@ -33,7 +33,5 @@ color: gray;
 }
 
 @media screen and (max-width: 1024px) {
-    .chartContainer {
-
-    }
+    .chartContainer {}
 }

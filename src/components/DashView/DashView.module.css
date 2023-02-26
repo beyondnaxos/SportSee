@@ -77,22 +77,23 @@
         display: flex;
         column-gap: 25px;
         margin-bottom: 30px;
-        
+
     }
+
     .chartContainer {
         height: inherit;
     }
-    
+
 
     .nutrients {
         flex-direction: row;
-        column-gap: 20px  ;
+        column-gap: 20px;
         margin-left: -40px;
         /* background-color: #f0f0f0; */
     }
-    
 
-  
+
+
     .title, .name {
         font-size: 38px;
         font-weight: 500;
@@ -120,8 +121,8 @@
     }
 
     .allCharts {
-       
+
         justify-content: flex-start;
-       
+
     }
 }

@@ -22,6 +22,7 @@ export default function DashView() {
   const [userActivity, setUserActivity] = useState([])
   const [kind, setKind] = useState([])
   const [userPerformance, setUserPerformance] = useState([])
+  const [wait , setWait] = useState(false)
 
   useEffect(() => {
     promiseAll()
@@ -29,6 +30,7 @@ export default function DashView() {
   }, [])
 
   const promiseAll = async () => {
+    setWait(true)
     try {
       const [userDatas, averageSession, userActivity, userPerformance] =
         await Promise.all([
@@ -37,6 +39,7 @@ export default function DashView() {
           store.getUserActivity(id),
           store.getUserPerformance(id),
         ])
+      // await (() => new Promise((resolve) => setTimeout(resolve, 1500)))()
 
       setUserDatas(userDatas.nutType)
       setUserInfos(userDatas.userInfos)
@@ -47,12 +50,18 @@ export default function DashView() {
       setKind(userPerformance.kind)
     } catch (error) {
       console.log(error)
+    } finally {
+      setWait(false)
     }
+  }
+
+  if ( wait ) {
+    return null
   }
 
   return (
     <div className={styles.container}>
-      {userActivity.length > 0 ? 
+      {userActivity.length > 0 ? (
         <>
           <h1 className={styles.title}>
             Bonjour{' '}
@@ -90,7 +99,9 @@ export default function DashView() {
             </section>
           </section>
         </>
-       : <Error /> }
+      ) : (
+        <Error />
+      )}
     </div>
   )
 }
