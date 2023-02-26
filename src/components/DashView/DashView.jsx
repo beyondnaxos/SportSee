@@ -39,7 +39,6 @@ export default function DashView() {
           store.getUserActivity(id),
           store.getUserPerformance(id),
         ])
-      // await (() => new Promise((resolve) => setTimeout(resolve, 1500)))()
 
       setUserDatas(userDatas.nutType)
       setUserInfos(userDatas.userInfos)
