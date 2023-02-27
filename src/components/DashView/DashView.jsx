@@ -9,7 +9,7 @@ import uuid from 'react-uuid'
 import { useParams } from 'react-router-dom'
 import { store } from '../../config'
 import Error from '../Error/Error'
-import ErrorId from '../Error/ErrorId'
+
 
 /* A function that returns a JSX element with a view of each charts components */
 
