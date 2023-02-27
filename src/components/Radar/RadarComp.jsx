@@ -14,7 +14,7 @@ import styles from './RadarComp.module.css'
  * @param {{datas : Array<{value : number, kind : number}>}} props datas refers to the perf types of the user
  */
 
-export default function RadarComp(props) {
+export function RadarComp(props) {
  
   console.log('radarComp', props)
 
@@ -45,6 +45,8 @@ export default function RadarComp(props) {
   )
   return <div>{renderRadarChart}</div>
 }
+
+export default RadarComp
 
 RadarComp.propTypes = {
   datas: PropTypes.arrayOf(

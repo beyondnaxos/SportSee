@@ -3,7 +3,12 @@ import styles from './SideBar.module.css'
 import LinkButton from '../LinkButton/LinkButton'
 import uuid from 'react-uuid'
 
-export default function SideBar() {
+/**
+ * It's a function that returns a nav element with a div element and a p element as children. The div
+ * element has four LinkButton components as children.
+ */
+
+export function SideBar() {
   const images = [
     '/assets/meditation.png',
     '/assets/swim.png',
@@ -23,3 +28,5 @@ export default function SideBar() {
     </nav>
   )
 }
+
+export default SideBar

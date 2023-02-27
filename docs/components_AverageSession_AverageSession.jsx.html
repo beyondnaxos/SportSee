@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: components/AverageSession/AverageSession.jsx</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: components/AverageSession/AverageSession.jsx</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>import PropTypes from 'prop-types'
+import {
+  LineChart,
+  Line,
+  CartesianGrid,
+  XAxis,
+  Tooltip,
+  Legend,
+  Rectangle,
+} from 'recharts'
+import styles from './AverageSession.module.css'
+
+/**
+ * It takes an array of objects as a prop, maps over the array, and returns a new array of objects with
+ * the same keys but different values.
+ * @param {{average : Array&lt;{sessionLength : number}>}} props average refers to the average session length of the user
+ * @returns An array of objects.
+ */
+
+export function AverageSession(props) {
+
+  const CustomDot = (props) => {
+    const { cx, cy } = props;
+  
+    return (
+      &lt;circle
+        cx={cx}
+        cy={cy}
+        r={5}
+        stroke="rgb(255, 255, 255, 0.2)"
+        strokeWidth={15}
+        fill="white"
+      />
+    );
+  };
+
+
+  const CustomCursor = (props) => {
+    const { points } = props
+    const { x, y } = points[0]
+    return (
+      &lt;Rectangle
+        fill="black"
+        fillOpacity={0.1}
+        x={x}
+        y={y - 100}
+        width={400}
+        height={400}
+      />
+    )
+  }
+
+  const lengendText = () => {
+    return (
+      &lt;div
+        style={{
+          color: 'white',
+          marginTop: '20px',
+          marginLeft: '20px',
+          opacity: '.5',
+          position: 'relative',
+        }}
+      >
+        Durée moyenne des
+        &lt;br />
+        sessions
+      &lt;/div>
+    )
+  }
+
+  const renderLineChart = (
+    &lt;div className={styles.chartContainer}>
+      &lt;LineChart
+        width={258}
+        height={263}
+        data={props.average}
+        margin={{
+          top: 20,
+          right: 20,
+          left: 20,
+          bottom: 10, //Increase or Decrease This
+        }}
+      >
+        &lt;defs>
+          &lt;linearGradient id="colorUv" x1="1" y1="1" x2="0" y2="0">
+            &lt;stop offset="10%" stopColor="#FFFFFF" stopOpacity={0.8} />
+            &lt;stop offset="0%" stopColor="#FFFFFF" stopOpacity={1} />
+            &lt;stop offset="30%" stopColor="#FFFFFF" stopOpacity={0.8} />
+          &lt;/linearGradient>
+        &lt;/defs>
+        &lt;CartesianGrid horizontal={false} vertical={false} />
+        {/* &lt;YAxis  domain={[0, 'dataMax + 1000']} allowDataOverflow={true} tickLine={false}
+          axisLine={false} values='none'/> */}
+        &lt;XAxis
+          dataKey="name"
+          stroke="white"
+          tickLine={false}
+          tick={{ fill: 'white', opacity: 0.5 }}
+          tickMargin={20}
+          height={50}
+          axisLine={false}
+        />
+        &lt;Tooltip
+          cursor={&lt;CustomCursor />}
+          stroke="black"
+          labelFormatter={() => ``}
+          formatter={(value) => [value + ' min']}
+          color="black"
+          wrapperStyle={{
+            outline: 'none',
+            fontSize: '8px',
+            height: '24px',
+            alignContent: 'center',
+            fontWeight: 'bold',
+          }}
+          position="top"
+        />
+        &lt;Line
+          dot={false}
+          activeDot={&lt;CustomDot />}
+          type="basis"
+          
+          dataKey="duration"
+          strokeWidth={2.5}
+          opacity={0.85}
+          stroke="url(#colorUv)"
+        />
+        &lt;Legend verticalAlign="top" align="left" content={lengendText}>&lt;/Legend>
+      &lt;/LineChart>
+    &lt;/div>
+  )
+
+  return &lt;div>{renderLineChart}&lt;/div>
+}
+
+export default AverageSession
+
+AverageSession.propTypes = {
+  // days: PropTypes.arrayOf(PropTypes.string),
+  average: PropTypes.arrayOf(
+    PropTypes.shape({
+      day: PropTypes.number,
+      duration: PropTypes.number,
+      amt: PropTypes.number,
+    })
+  ),
+}
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Modules</h3><ul><li><a href="module-src_main.html">src/main</a></li></ul><h3>Global</h3><ul><li><a href="global.html#App">App</a></li><li><a href="global.html#AverageSession">AverageSession</a></li><li><a href="global.html#BarChartComp">BarChartComp</a></li><li><a href="global.html#Error404">Error404</a></li><li><a href="global.html#IdChoose">IdChoose</a></li><li><a href="global.html#LinkButton">LinkButton</a></li><li><a href="global.html#Nutrients">Nutrients</a></li><li><a href="global.html#PieComp">PieComp</a></li><li><a href="global.html#RadarComp">RadarComp</a></li><li><a href="global.html#Routing">Routing</a></li><li><a href="global.html#ScrollToTop">ScrollToTop</a></li><li><a href="global.html#SideBar">SideBar</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.0</a> on Mon Feb 27 2023 12:21:29 GMT+0100 (heure normale d’Europe centrale)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

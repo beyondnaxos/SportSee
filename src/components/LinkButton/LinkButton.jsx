@@ -2,7 +2,13 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import styles from './LinkButton.module.css'
 
-export default function LinkButton(props) {
+
+
+/**
+ * It's a function that returns a div with a class of navbutton and an image with a class of navbuttonimage.
+ * @returns A React component with a div and an image.
+ */
+export function LinkButton(props) {
 
 
   return (
@@ -12,6 +18,8 @@ export default function LinkButton(props) {
       </div>
   )
 }
+
+export default LinkButton
 
 LinkButton.propTypes = {
   image: PropTypes.string,

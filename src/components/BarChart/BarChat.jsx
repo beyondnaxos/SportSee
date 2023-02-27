@@ -19,7 +19,7 @@ import styles from './BarChart.module.css'
  * @returns An array of objects.
  */
 
-export default function BarChartComp(props) {
+export function BarChartComp(props) {
   console.log(props)
 
   const CustomTooltip = ({ active, payload }) => {
@@ -103,6 +103,8 @@ export default function BarChartComp(props) {
 
   return <div>{renderBarChart}</div>
 }
+
+export default BarChartComp
 
 BarChartComp.propTypes = {
   datas: PropTypes.arrayOf(

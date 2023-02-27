@@ -17,7 +17,7 @@ import styles from './AverageSession.module.css'
  * @returns An array of objects.
  */
 
-export default function AverageSession(props) {
+export function AverageSession(props) {
 
   const CustomDot = (props) => {
     const { cx, cy } = props;
@@ -132,6 +132,8 @@ export default function AverageSession(props) {
 
   return <div>{renderLineChart}</div>
 }
+
+export default AverageSession
 
 AverageSession.propTypes = {
   // days: PropTypes.arrayOf(PropTypes.string),

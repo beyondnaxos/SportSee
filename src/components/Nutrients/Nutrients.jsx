@@ -4,11 +4,11 @@ import PropTypes from 'prop-types'
 
 /**
  * It takes in a prop called name, and depending on the value of name, it returns a different value for
- * @returns {JSX.Element} The return statement is returning the JSX code that is being rendered to the DOM.
+ * @returns {JSX.Element}  A React component with a div and an image.
  * @param {{name : string , value : number }} props  name refers to the name of the nutrient, and value refers to the value of the nutrient
  */
 
-export default function Nutrients(props) {
+export function Nutrients(props) {
   console.log('nutrients', props)
 
   return (
@@ -26,6 +26,8 @@ export default function Nutrients(props) {
     </div>
   )
 }
+
+export default Nutrients
 
 Nutrients.propTypes = {
   name: PropTypes.string,

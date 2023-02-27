@@ -7,8 +7,6 @@ import ScrollToTop from './components/ScrollToTop/ScrollToTop';
 import SideBar from './components/SideBar/SideBar';
 
 
-
-
 /**
  * The App function returns a BrowserRouter component that contains a ScrollToTop component, a NavBar
  * component, a section component with a className of "main" that contains a SideBar component and a

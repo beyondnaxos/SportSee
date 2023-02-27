@@ -4,8 +4,8 @@ import styles from './IdChoose.module.css'
 import {whereAreWe} from '../../config'
 
 /**
- * It's a function that returns a div with a form that allows the user to choose an id.
- * @returns A function
+ * It's a function that returns a form to choose an id. It's used to test the different cases of the app.
+ * @returns A form with an input and a button.
  */
 
 function IdChoose() {

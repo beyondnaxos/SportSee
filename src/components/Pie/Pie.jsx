@@ -11,7 +11,7 @@ This component takes a user's score as a prop and displays it as a percentage in
 @returns {ReactNode} A React component that displays the user's score as a percentage in a pie chart.
 */
 
-export default function PieComp(props) {
+export function PieComp(props) {
   const data = [
     {
       name: 'score',
@@ -82,6 +82,8 @@ export default function PieComp(props) {
 
   return <div>{renderPieChart}</div>
 }
+
+export default PieComp
 
 PieComp.propTypes = {
   score: PropTypes.number,

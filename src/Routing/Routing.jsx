@@ -2,10 +2,13 @@ import { Routes, Route } from 'react-router-dom'
 import React from 'react'
 import DashView from '../components/DashView/DashView'
 import IdChoose from '../components/IdChoose/IdChoose'
-// import { AuthContext } from '../../service/context.js';
-// import Home from './components/Home/Home'
 
-export default function Routing(props) {
+
+/**
+ * If the user is not logged in, show the login page, otherwise show the dashboard.
+ */
+
+export function Routing(props) {
 
   // const userContext = useContext(AuthContext);
 
@@ -16,3 +19,5 @@ export default function Routing(props) {
     </Routes>
   )
 }
+
+export default Routing
