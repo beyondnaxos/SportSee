@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types'
 // import pie
-import { PieChart, Pie, ResponsiveContainer } from 'recharts'
+import { PieChart, Pie, ResponsiveContainer, Legend } from 'recharts'
 
 import styles from './Pie.module.css'
 
@@ -28,6 +28,23 @@ export function PieComp(props) {
       full: 0,
     },
   ]
+
+  const lengendText = () => {
+    return (
+      <div
+        style={{
+          color: 'black',
+          marginTop: '20px',
+          marginLeft: '20px',
+          fontWeight: 'bold',
+          opacity: '1',
+          position: 'relative',
+        }}
+      >
+        Score
+      </div>
+    )
+  }
   
   const renderLabel = () => {
     return (
@@ -75,6 +92,7 @@ export function PieComp(props) {
             stroke="none"
             label={renderLabel}
           ></Pie>
+        <Legend verticalAlign="top" align="left" content={lengendText}></Legend>
         </PieChart>
       </ResponsiveContainer>
     </div>
