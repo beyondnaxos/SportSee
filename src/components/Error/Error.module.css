@@ -14,6 +14,16 @@
 
 }
 
+.error {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #FF0101;
+    margin-bottom: 150px;
+}
+
 .bignumber {
     font-size: 263px;
 }

@@ -30,6 +30,7 @@ export default function DashView() {
   }, [])
 
   const promiseAll = async () => {
+
     setWait(true)
     try {
       const [userDatas, averageSession, userActivity, userPerformance] =
@@ -55,7 +56,6 @@ export default function DashView() {
   }
 
   if ( wait ) {
-    // retourner une erreur 500 ou voir ( err api )
     return null
   }
 

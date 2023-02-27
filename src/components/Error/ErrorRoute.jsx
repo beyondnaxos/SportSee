@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import styles from './Error.module.css'
-import {whereAreWe} from '../../config'
+
 
 
 /**
@@ -9,12 +9,12 @@ import {whereAreWe} from '../../config'
  * @returns A React component
  */
 
-export function Error500() {
+export function Error404() {
   return (
-    <div className={styles.errorpage}>
-      <h1 className={styles.bignumber}>500</h1>
+    <div className={styles.error}>
+      <h1 className={styles.bignumber}>404</h1>
       <h2 className={styles.bigquote}>
-        {whereAreWe === 'Api' ? 'Oups! API Indisponible.' : 'Oups! Mock Indisponible.'}
+        Cette page n'existe pas
       </h2>
 
       <Link className={styles.redirect} to="/">
@@ -24,4 +24,4 @@ export function Error500() {
   )
 }
 
-export default Error500
+export default Error404
