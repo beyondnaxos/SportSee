@@ -4,7 +4,8 @@
 
 # SportSee [FRONT]
 
-Développez un tableau de bord d'analytics avec React du parcours Développeur Front-end d'OpenClassrooms.
+[FR] Développez un tableau de bord d'analytics avec React du parcours Développeur Front-end d'OpenClassrooms.
+[EN] Develop an analytics dashboard with React for the OpenClassrooms Front-end Developer path.
 
 
 
