@@ -4,8 +4,7 @@
 
 # SportSee [FRONT]
 
-Développez un tableau de bord d'analytics avec React du parcours Développeur Front-end d'OpenClassrooms.
-
+ Develop an analytics dashboard with React for the OpenClassrooms Front-end Developer path.
 
 
 
@@ -40,7 +39,7 @@ To run this project with datas from Mock
 
 
 
-## Stack + devDep
+## Stack + devDep + Dependencies
 
 Vite 4.0 w/ React 18.0.26 ||
 ESLint 8.33.0 ||
@@ -60,25 +59,12 @@ Env-cmd 10.1.0
 - Mock to Api switch 
 
 
-
 ## Appendix
 
 ### Backend : 
 https://github.com/OpenClassrooms-Student-Center/P9-front-end-dashboard
 
 
-### Deployment
-
-To install backend server
-
-```bash
-  npm install
-```
-To run backend server
-
-```bash
-  npm start
-```
 
 
 
