@@ -11,8 +11,6 @@ import Error404 from '../components/Error/ErrorRoute'
 
 export function Routing(props) {
 
-  // const userContext = useContext(AuthContext);
-
   return (
     <Routes>
       <Route path="/" element={<IdChoose setCurrentUser={props.setCurrentUser} />} />
