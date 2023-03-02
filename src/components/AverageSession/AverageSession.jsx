@@ -89,8 +89,6 @@ export function AverageSession(props) {
           </linearGradient>
         </defs>
         <CartesianGrid horizontal={false} vertical={false} />
-        {/* <YAxis  domain={[0, 'dataMax + 1000']} allowDataOverflow={true} tickLine={false}
-          axisLine={false} values='none'/> */}
         <XAxis
           dataKey="name"
           stroke="white"
@@ -136,7 +134,6 @@ export function AverageSession(props) {
 export default AverageSession
 
 AverageSession.propTypes = {
-  // days: PropTypes.arrayOf(PropTypes.string),
   average: PropTypes.arrayOf(
     PropTypes.shape({
       day: PropTypes.number,
