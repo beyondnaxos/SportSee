@@ -9,22 +9,22 @@ const Store = {
   getUserId: async (id) => {
     const { data } = await axios.get(`http://localhost:3000/user/${id}`);
     const userData = new UserDataModel(data.data)
-    return userData;
+    return userData
   },
   getUserActivity: async (id) => {
     const { data } = await axios.get(`http://localhost:3000/user/${id}/activity`);
     const activityData = new ActivityModel(data.data)
-    return activityData.mappedData;
+    return activityData.mappedData
   },
   getUserAverageSession: async (id) => {
     const { data } = await axios.get(`http://localhost:3000/user/${id}/average-sessions`);
     const averageData = new AverageModel(data.data)
-    return averageData.mappedData;
+    return averageData.mappedData
   },
   getUserPerformance: async (id) => {
     const { data } = await axios.get(`http://localhost:3000/user/${id}/performance`);
     const performanceData = new PerformanceModel(data.data)
-    return performanceData.mappedData;
+    return performanceData.mappedData
   },
 };
 

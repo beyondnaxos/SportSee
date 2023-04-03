@@ -10,7 +10,6 @@ import { useParams } from 'react-router-dom'
 import { store } from '../../config'
 import Error from '../Error/Error'
 
-
 /* A function that returns a JSX element with a view of each charts components */
 
 export default function DashView() {
@@ -23,7 +22,7 @@ export default function DashView() {
   const [userActivity, setUserActivity] = useState([])
   const [kind, setKind] = useState([])
   const [userPerformance, setUserPerformance] = useState([])
-  const [wait , setWait] = useState(false)
+  const [wait, setWait] = useState(false)
 
   useEffect(() => {
     promiseAll()
@@ -31,7 +30,6 @@ export default function DashView() {
   }, [])
 
   const promiseAll = async () => {
-
     setWait(true)
     try {
       const [userDatas, averageSession, userActivity, userPerformance] =
@@ -41,7 +39,6 @@ export default function DashView() {
           store.getUserActivity(id),
           store.getUserPerformance(id),
         ])
-
       setUserDatas(userDatas.nutType)
       setUserInfos(userDatas.userInfos)
       setUserScore(userDatas.todayScore)
@@ -56,12 +53,9 @@ export default function DashView() {
     }
   }
 
-  if ( wait ) {
+  if (wait) {
     return null
   }
-
- 
-
 
   return (
     <div className={styles.container}>
